@@ -1,0 +1,91 @@
+[cols="h, s"]
+|===
+| Projektantrag | Stroschneider
+|===
+
+[cols="h, s"]
+|===
+| Projektbezeichnung | Kalorienzähler
+| Projektauftraggeber | Htl-Leonding
+| Projekthintergrund | Die Anwendung/App sollte bei Ab- und Zunehmen helfen.
+
+                       Nie selber eine richtige App gefunden welche gepasst hat.
+| Projektendergebnis | Es sollte anderen Personen das Ab- und Znehmen erleichtern, indem Sie immer ihre Kalorien im überblick haben.
+| Projektziel(e) | Leute sollten Spaß haben, die App zu benutzen und es sollte auch mehr Menschen zu Sport und Fitness motivieren.
+| Projektbeschreibung | Das Projekt soll deine Kalorien mit zählen also du gibst jede Mahlzeit ein und Schritte werden automatisch mitgezählt.
+
+                        Außerdem, kann man sein Training eintragen, um ein möglichst genaues Endergebnisse von den Kalorien zu haben.
+|===
+
+[cols="h"]
+|===
+| Projektphasen / Meilensteine
+|===
+
+Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
+
+|===
+| Phase | Meilenstein / Ergebnis | Soll-Termin | Freigabe
+
+| - | - | - | -
+| - | - | - | -
+| - | - | - | -
+|===
+
+[cols="h, s"]
+|===
+| Projektstart | 17.10.2022
+| Projektende | 10.06.2022
+|===
+
+[cols="h"]
+|===
+| Projektressourcen
+|===
+
+|===
+| Infrastruktur | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+
+| | | |
+| | | |
+| | | |
+|===
+
+|===
+| Personal | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+
+|  | | |
+| | | |
+| | | |
+|===
+
+|===
+| Material | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+
+| | | |
+| | | |
+| | | |
+|===
+
+|===
+| sonstige Aufwendungen | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+
+| | | |
+| | | |
+| | | |
+|===
+
+"x", wenn ausgabenwirksam
+
+Gesamt:
+
+Abschätzung der Erlöse aus dem Projekt (Angabe der Annahmen für die Berechnung)
+
+Welche Ressourcen werden vom Auftraggeber zur Verfügung gestellt?
+
+[cols="h, s"]
+|===
+| Projektrisiken | Das es im Schuljahr nicht fertiggestellt wird
+| Projektorganisation | Noch nicht bekannt
+| Abschluss des Projektauftrags | Datum, Unterschriften aller Verantwortlichen
+|===
