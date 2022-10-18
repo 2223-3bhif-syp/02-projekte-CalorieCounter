@@ -1,6 +1,18 @@
+= Projektantrag
+Stroschneider, Gruber, Breinesberger und Aichinger
+:toc: left
+:sectnums:
+:toclevels: 5
+:table-caption:
+
+----
+Contact: f.stroschneider@students.htl-leonding.ac.at
+----
+
+== Projektinformationen
 [cols="h, s"]
 |===
-| Projektantrag | Stroschneider
+| Projektantrag | Stroschneider, Gruber, Breinesberger und Aichinger
 |===
 
 [cols="h, s"]
@@ -9,20 +21,18 @@
 | Projektauftraggeber | Htl-Leonding
 | Projekthintergrund | Die Anwendung/App sollte bei Ab- und Zunehmen helfen.
 
-                       Nie selber eine richtige App gefunden welche gepasst hat.
-| Projektendergebnis | Es sollte anderen Personen das Ab- und Znehmen erleichtern, indem Sie immer ihre Kalorien im überblick haben.
+Nie selber eine richtige App gefunden welche gepasst hat.
+| Projektendergebnis | Es sollte anderen Personen das Ab- und Zunehmen erleichtern, indem Sie immer ihre Kalorien im überblick haben.
 | Projektziel(e) | Leute sollten Spaß haben, die App zu benutzen und es sollte auch mehr Menschen zu Sport und Fitness motivieren.
 | Projektbeschreibung | Das Projekt soll deine Kalorien mit zählen also du gibst jede Mahlzeit ein und Schritte werden automatisch mitgezählt.
 
-                        Außerdem, kann man sein Training eintragen, um ein möglichst genaues Endergebnisse von den Kalorien zu haben.
+Außerdem, kann man sein Training eintragen, um ein möglichst genaues Endergebnisse von den Kalorien zu haben.
 |===
 
-[cols="h"]
-|===
-| Projektphasen / Meilensteine
-|===
-
+== Projektphasen / Meilensteine
 Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
+
+- Noch nicht festgelegt
 
 |===
 | Phase | Meilenstein / Ergebnis | Soll-Termin | Freigabe
@@ -32,16 +42,15 @@ Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
 | - | - | - | -
 |===
 
+== Projekttermine
+
 [cols="h, s"]
 |===
 | Projektstart | 17.10.2022
 | Projektende | 10.06.2022
 |===
 
-[cols="h"]
-|===
-| Projektressourcen
-|===
+== Projektressourcen
 
 |===
 | Infrastruktur | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
@@ -54,7 +63,7 @@ Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
 |===
 | Personal | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
 
-|  | | |
+| | | |
 | | | |
 | | | |
 |===
@@ -83,9 +92,10 @@ Abschätzung der Erlöse aus dem Projekt (Angabe der Annahmen für die Berechnun
 
 Welche Ressourcen werden vom Auftraggeber zur Verfügung gestellt?
 
+== Projekt
 [cols="h, s"]
 |===
-| Projektrisiken | Das es im Schuljahr nicht fertiggestellt wird
+| Projektrisiken | Dass es im Schuljahr nicht fertiggestellt wird
 | Projektorganisation | Noch nicht bekannt
 | Abschluss des Projektauftrags | Datum, Unterschriften aller Verantwortlichen
 |===
