@@ -1,4 +1,4 @@
-= Projektantrag
+= Project application
 Stroschneider, Gruber, Breinesberger und Aichinger
 :toc: left
 :sectnums:
@@ -9,59 +9,55 @@ Stroschneider, Gruber, Breinesberger und Aichinger
 Contact: f.stroschneider@students.htl-leonding.ac.at
 ----
 
-== Projektinformationen
+== Project information
 [cols="h, s"]
 |===
-| Projektantrag | Stroschneider, Gruber, Breinesberger und Aichinger
+| Project application | Stroschneider
 |===
 
 [cols="h, s"]
 |===
-| Projektbezeichnung | Kalorienzähler
-| Projektauftraggeber | Htl-Leonding
-| Projekthintergrund | Die Anwendung/App sollte bei Ab- und Zunehmen helfen.
+| Project name | Calorie counter
+| Project client | Htl-Leonding
+| Project background | The application/app should help with weight loss and gain.
 
-Nie selber eine richtige App gefunden welche gepasst hat.
-| Projektendergebnis | Es sollte anderen Personen das Ab- und Zunehmen erleichtern, indem Sie immer ihre Kalorien im überblick haben.
-| Projektziel(e) | Leute sollten Spaß haben, die App zu benutzen und es sollte auch mehr Menschen zu Sport und Fitness motivieren.
-| Projektbeschreibung | Das Projekt soll deine Kalorien mit zählen also du gibst jede Mahlzeit ein und Schritte werden automatisch mitgezählt.
+                       Never found a proper app myself that fit.
+| Final project result | It should make it easier for other people to lose weight and gain weight by keeping track of their calories.
+| Project goal(s) | People should have fun using the app and it should also motivate more people to do sports and fitness.
+| Project description | The project should count your calories, so you enter each meal and steps are automatically counted.
 
-Außerdem, kann man sein Training eintragen, um ein möglichst genaues Endergebnisse von den Kalorien zu haben.
+                        Moreover, you can enter your workout to have the most accurate final results of calories.
 |===
 
-== Projektphasen / Meilensteine
-Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
+== Project phases / milestones
 
-- Noch nicht festgelegt
+Description of the project phases and their verifiable intermediate results.
 
 |===
-| Phase | Meilenstein / Ergebnis | Soll-Termin | Freigabe
+| Phase | Milestones / Result | Target deadline | Release
 
 | - | - | - | -
 | - | - | - | -
 | - | - | - | -
 |===
 
-== Projekttermine
+== Project dates
 
 [cols="h, s"]
 |===
-| Projektstart | 17.10.2022
-| Projektende | 10.06.2022
+| Project start | 17.10.2022
+| Project end | 10.06.2023
 |===
 
-== Projektressourcen
+== Project Resources
 
+[cols="h"]
 |===
-| Infrastruktur | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
-
-| | | |
-| | | |
-| | | |
+| Project Resources
 |===
 
 |===
-| Personal | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+| Infrastructure | Amount (estimate) | Euro a unit | Amount | "x"
 
 | | | |
 | | | |
@@ -69,7 +65,15 @@ Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
 |===
 
 |===
-| Material | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+| Personal | Amount (estimate) | Euro a unit | Amount | "x"
+
+|  | | |
+| | | |
+| | | |
+|===
+
+|===
+| Material | Amount (estimate) | Euro a unit | Amount | "x"
 
 | | | |
 | | | |
@@ -77,25 +81,26 @@ Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
 |===
 
 |===
-| sonstige Aufwendungen | Menge (Schätzung) | Euro a Einheit | Betrag | "x"
+| other expenses | Amount (estimate) | Euro a unit | Amount | "x"
 
 | | | |
 | | | |
 | | | |
 |===
 
-"x", wenn ausgabenwirksam
+"x", if expenditure-effective
 
-Gesamt:
+Total:
 
-Abschätzung der Erlöse aus dem Projekt (Angabe der Annahmen für die Berechnung)
+Estimate of revenues from the project (specify assumptions for calculation).
 
-Welche Ressourcen werden vom Auftraggeber zur Verfügung gestellt?
+What resources are provided by the client?
 
-== Projekt
+== Project
+
 [cols="h, s"]
 |===
-| Projektrisiken | Dass es im Schuljahr nicht fertiggestellt wird
-| Projektorganisation | Noch nicht bekannt
-| Abschluss des Projektauftrags | Datum, Unterschriften aller Verantwortlichen
+| Project risks | That it is not completed in the school year
+| Project organization | unknown
+| Completion of the project assignment | Date, signatures of all responsible persons
 |===
