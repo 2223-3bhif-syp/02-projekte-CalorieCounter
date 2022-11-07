@@ -1,8 +1,8 @@
-= Project application
+= Project order
 Stroschneider, Gruber, Breinesberger und Aichinger
 :toc: left
 :sectnums:
-:toclevels: 5
+:toclevels: 1
 :table-caption:
 
 ----
@@ -12,7 +12,7 @@ Contact: f.stroschneider@students.htl-leonding.ac.at
 == Project information
 [cols="h, s"]
 |===
-| Project application | Stroschneider
+| Project application from | Stroschneider,
 |===
 
 [cols="h, s"]
@@ -36,9 +36,9 @@ Description of the project phases and their verifiable intermediate results.
 |===
 | Phase | Milestones / Result | Target deadline | Release
 
-| - | - | - | -
-| - | - | - | -
-| - | - | - | -
+| Create plantuml | Plantuml diagram finished | 14-11-2022 | -
+| Create food calculator | Calculate calories from food works | 13-02-2023 | -
+| Create weight and calories calculator | Calculate weight and calories | 03-07-2023 | -
 |===
 
 == Project dates
