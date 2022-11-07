@@ -1,6 +1,10 @@
-
 @startuml
 
+object data
+object program
+object user
 
+data <--> program
+user <--> program
 
 @enduml

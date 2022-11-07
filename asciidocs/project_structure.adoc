@@ -1,0 +1,4 @@
+= Project structure
+
+== Plantuml
+* link:plantuml/structure.puml[]
