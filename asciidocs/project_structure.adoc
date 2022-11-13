@@ -1,4 +1,7 @@
 = Project structure
 
 == Plantuml
-* link:plantuml/structure.puml[]
+[plantuml,structure,png]
+----
+include::plantuml/structure.puml[]
+----
