@@ -1,3 +1,16 @@
-= Header
+= Documentation Calorie counter
+Stroschneider, Gruber, Breinesberger und Aichinger
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
 
-== Github pages test
+----
+Contact: f.stroschneider@students.htl-leonding.ac.at
+----
+
+== Project order
+link:[project_order.adoc]
+
+== Class diagram
+link:[project_structure.adoc]
