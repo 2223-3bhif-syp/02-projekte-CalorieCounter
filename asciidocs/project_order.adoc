@@ -12,19 +12,17 @@ Contact: f.stroschneider@students.htl-leonding.ac.at
 == Project information
 [cols="h, s"]
 |===
-| Project application from | Stroschneider,
+| Project application from | Stroschneider
 |===
 
 [cols="h, s"]
 |===
 | Project name | Calorie counter
 | Project client | Htl-Leonding
-| Project background | The application/app should help with weight loss and gain.
-
-                       Never found a proper app myself that fit.
+| Project background | There is currently no good calorie counter app with the features the people want.
 | Final project result | It should make it easier for other people to lose weight and gain weight by keeping track of their calories.
 | Project goal(s) | People should have fun using the app and it should also motivate more people to do sports and fitness.
-| Project description | The project should count your calories, so you enter each meal and steps are automatically counted.
+| Project description | The app counts your calories, so you enter each meal and steps are automatically counted.
 
                         Moreover, you can enter your workout to have the most accurate final results of calories.
 |===
