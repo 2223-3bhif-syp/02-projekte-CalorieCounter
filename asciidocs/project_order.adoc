@@ -47,53 +47,6 @@ Description of the project phases and their verifiable intermediate results.
 | Project end | 10.06.2023
 |===
 
-== Project Resources
-
-[cols="h"]
-|===
-| Project Resources
-|===
-
-|===
-| Infrastructure | Amount (estimate) | Euro a unit | Amount | "x"
-
-| | | |
-| | | |
-| | | |
-|===
-
-|===
-| Personal | Amount (estimate) | Euro a unit | Amount | "x"
-
-|  | | |
-| | | |
-| | | |
-|===
-
-|===
-| Material | Amount (estimate) | Euro a unit | Amount | "x"
-
-| | | |
-| | | |
-| | | |
-|===
-
-|===
-| other expenses | Amount (estimate) | Euro a unit | Amount | "x"
-
-| | | |
-| | | |
-| | | |
-|===
-
-"x", if expenditure-effective
-
-Total:
-
-Estimate of revenues from the project (specify assumptions for calculation).
-
-What resources are provided by the client?
-
 == Project
 
 [cols="h, s"]
