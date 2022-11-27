@@ -1,4 +1,4 @@
-= Documentation Calorie counter
+= Dokumentation Calorie counter
 Stroschneider, Gruber, Breinesberger und Aichinger
 :toc: left
 :sectnums:
@@ -7,11 +7,11 @@ Stroschneider, Gruber, Breinesberger und Aichinger
 :linkattrs:
 
 ----
-Contact: f.stroschneider@students.htl-leonding.ac.at
+Kontakt: f.stroschneider@students.htl-leonding.ac.at
 ----
 
-== Project order
-https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/project_order[Project order]
+== Projektauftrag
+https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
 
-== Class diagram
-https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/project_structure[Class diagram]
+== Klassendiagramm
+https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/project_structure[Klassendiagramm]
