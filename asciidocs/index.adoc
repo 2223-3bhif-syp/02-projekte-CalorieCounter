@@ -14,4 +14,4 @@ Kontakt: f.stroschneider@students.htl-leonding.ac.at
 https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
 
 == Klassendiagramm
-https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/project_structure[Klassendiagramm]
+https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektstruktur[Klassendiagramm]

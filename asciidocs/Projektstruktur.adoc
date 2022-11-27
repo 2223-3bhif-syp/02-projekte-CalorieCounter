@@ -1,4 +1,4 @@
-= Project structure
+= Projektstruktur
 
 == Plantuml
 [plantuml,structure,png]
