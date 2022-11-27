@@ -1,7 +1,0 @@
-= Projektstruktur
-
-== Plantuml
-[plantuml,structure,png]
-----
-include::plantuml/structure.puml[]
-----

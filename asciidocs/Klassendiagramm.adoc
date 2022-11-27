@@ -1,0 +1,15 @@
+= Klassendiagramm
+Contents
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
+:linkattrs:
+
+== Diagramm
+ 1.Version
+
+[plantuml,structure,png]
+----
+include::plantuml/Klassendiagramm.puml[]
+----

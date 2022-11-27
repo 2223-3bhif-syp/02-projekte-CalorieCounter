@@ -1,0 +1,42 @@
+@startuml
+
+class User {
+    - userName: String
+    - password: Hash
+    - weight: Float
+    - height: Float
+    - plan: Plan
+    + getName(): String
+    + getWeight(): Float
+    + getHeight(): Float
+    + calculatePlan(c: Calculator): Plan
+}
+class Plan {
+    - dailyGoal: Float
+    - startDate: Date
+    - endDate: Date
+    - ultimateGoal
+    + achievedDailyGoal(c: Float): Boolean
+    + getOverview(): List<Float>
+}
+class Login {
+    - userName: String
+    - password: Hash
+}
+class Calculator {
+    - {static} instance
+    + {static} getInstance(): Calculator
+    + calculatePlan(s: Date, e: Date, goal: Float): Plan
+    + calculateCalories(m: Meal): Float
+}
+class Meal {
+    - ingredients: List<Float>
+    + getCalories(): Float
+}
+
+Calculator --> Plan : creates
+Calculator --> Meal : uses
+User o--o Plan : contains
+User --> Login : needs
+
+@enduml
