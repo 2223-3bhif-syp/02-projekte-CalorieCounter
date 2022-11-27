@@ -1,7 +1,7 @@
 = Calorie counter
 
 == Problem
-Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheiter es oft an der Umständlichkeit sich bei jeder einzelnen Mahlzeit die Kalorien der einzelnen Zutaten zu suchen.
+Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheitert es oft an der Umständlichkeit sich bei jeder einzelnen Mahlzeit die Kalorien der einzelnen Zutaten zu suchen.
 
 == Aufgabenstellung
 Die App soll nicht nur das mitverfolgen von Kalorien erleichtern. Sondern auch beim Training einsetzbar sein, womit man Menschen zu Sport und Fitness motivieren kann.

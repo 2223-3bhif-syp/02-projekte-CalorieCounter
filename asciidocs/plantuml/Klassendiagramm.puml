@@ -15,7 +15,7 @@ class Plan {
     - dailyGoal: Float
     - startDate: Date
     - endDate: Date
-    - ultimateGoal
+    - ultimateGoal: Float
     + achievedDailyGoal(c: Float): Boolean
     + getOverview(): List<Float>
 }
@@ -36,7 +36,7 @@ class Meal {
 
 Calculator --> Plan : creates
 Calculator --> Meal : uses
-User o--o Plan : contains
+User o-- Plan : contains
 User --> Login : needs
 
 @enduml
