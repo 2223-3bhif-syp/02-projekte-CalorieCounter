@@ -1,4 +1,4 @@
-= Project order
+= Projektauftrag
 Stroschneider, Gruber, Breinesberger und Aichinger
 :toc: left
 :sectnums:
@@ -6,52 +6,54 @@ Stroschneider, Gruber, Breinesberger und Aichinger
 :table-caption:
 
 ----
-Contact: f.stroschneider@students.htl-leonding.ac.at
+Kontakt: f.stroschneider@students.htl-leonding.ac.at
 ----
 
-== Project information
+== Projektinformationen
 [cols="h, s"]
 |===
-| Project application from | Stroschneider
+| Projektantrag von | Stroschneider
 |===
-
-[cols="h, s"]
-|===
-| Project name | Calorie counter
-| Project client | Htl-Leonding
-| Project background | There is currently no good calorie counter app with the features the people want.
-| Final project result | It should make it easier for other people to lose weight and gain weight by keeping track of their calories.
-| Project goal(s) | People should have fun using the app and it should also motivate more people to do sports and fitness.
-| Project description | The app counts your calories, so you enter each meal and steps are automatically counted.
-
-                        Moreover, you can enter your workout to have the most accurate final results of calories.
-|===
-
-== Project phases / milestones
-
-Description of the project phases and their verifiable intermediate results.
-
-|===
-| Phase | Milestones / Result | Target deadline | Release
-
-| Create plantuml | Plantuml diagram finished | 14-11-2022 | -
-| Create food calculator | Calculate calories from food works | 13-02-2023 | -
-| Create weight and calories calculator | Calculate weight and calories | 03-07-2023 | -
-|===
-
-== Project dates
 
 [cols="h, s"]
 |===
-| Project start | 17.10.2022
-| Project end | 10.06.2023
+| Projektbezeichnung | Calorie counter
+| Projektauftraggeber | HTL-Leonding
+| Projekthintergrund | Es gibt derzeit keine gute Kalorienzähler-App mit den Features, die sich die Leute wünschen.
+| Projektergebnis | Eine App, die Menschen das Ab- und Zunehmen erleichtert, indem sie ihre Kalorien im Auge behalten können.
+| Projektziel(e) | Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
+| Projektbeschreibung | Mit der App werden die Kalorien von Mahlzeiten berechnet und sie kann auch automatisch die Schritte mitzählen.
+
+                        Darüber hinaus kann man ein Training eingeben, um die genauesten Endergebnisse der Kalorien zu erhalten.
 |===
 
-== Project
+== Projektphasen / Meilensteine
+
+Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
+
+|===
+| Phase | Meilenstein / Ergebnis | Soll-Termin | Freigabe
+
+| Plantuml erstellen | Plantuml Diagramm fertig | 14.11.2022 | -
+| Lebensmittelrechner erstellen | Berechnet Kalorien einer Mahlzeit | 13.02.2023 | -
+| Gewichts- und Kalorienrechner erstellen | Berechnet Gewicht und Kalorien | 03.07.2023 | -
+|===
+
+== Projektdaten
 
 [cols="h, s"]
 |===
-| Project risks | That it is not completed in the school year
-| Project organization | unknown
-| Completion of the project assignment | Date, signatures of all responsible persons
+| Projektstart | 17.10.2022
+| Projektende | 10.06.2023
+|===
+
+== Projekt
+
+[cols="h, s"]
+|===
+| Projektrisiken | Dass es nicht im Schuljahr abgeschlossen wird
+| Projektorganisation | Projektleiter: Fabian Stroschneider
+
+                        Projektteam: Moritz Gruber, Tobias Aichinger, Markus Breinesberger
+| Abschluss des Projektauftrags | Datum, Unterschriften aller Verantwortlichen
 |===
