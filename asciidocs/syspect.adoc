@@ -1,0 +1,38 @@
+= Pflichtenheft
+Stroschneider, Gruber, Breinesberger, Aichinger und Horner
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
+
+== Beschreibung der Ausgangslage
+
+Wir sind ein Team aus 5 Schuelern und besuchen die Hoehere Technische Bundeslehranstalt Leonding.
+
+== Ist-Zustand
+
+Es gibt derzeit keine Kalorienzaehler-App mit den Features, die sich die Leute wuenschen.
+
+Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblick ueber ihren Kalorienverbrauch und ihre Kalorienaufnahme.
+
+== Zielsetzung
+
+Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
+
+== Anforderungen (Soll)
+
+Das Program soll das aktuelle und das wunsch Gewicht abfragen.
+
+Außerdem sollen eingegebenen Kalorien gezaehlt und ausgewertet werden.
+
+Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.
+
+Nach laengerer nutzungszeit sollen Statistiken zur Verfuegung stehen.
+
+== Administratives
+
+----
+Kontakt: f.stroschneider@students.htl-leonding.ac.at
+
+Team: Stroschneider, Gruber, Breinesberger, Aichinger und Horner
+----
