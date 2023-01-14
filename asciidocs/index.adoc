@@ -15,3 +15,6 @@ https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Proje
 
 == Klassendiagramm
 https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Klassendiagramm[Klassendiagramm]
+
+== Pflichtenheft
+https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Pflichtenheft[sysspec]
