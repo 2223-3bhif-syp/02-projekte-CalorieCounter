@@ -10,4 +10,4 @@ Die App soll nicht nur das mitverfolgen von Kalorien erleichtern. Sondern auch b
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/[Index]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Klassendiagramm[Klassendiagramm]
-* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/sysspec[sysspec]
+* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/sysspec[Pflichtenheft]
