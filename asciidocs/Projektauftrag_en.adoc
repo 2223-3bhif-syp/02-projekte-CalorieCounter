@@ -1,0 +1,59 @@
+= project order
+Stroschneider, Gruber, Breinesberger and Aichinger
+:toc: left
+:sectnums:
+:toclevels: 1
+:table caption:
+
+----
+Contact: f.stroschneider@students.htl-leonding.ac.at
+----
+
+== Project information
+[cols="h, s"]
+|===
+| Project proposal from | straw cutter
+|===
+
+[cols="h, s"]
+|===
+| Project name | calorie counter
+| Project client | HTL Leonding
+| Project Background | There is currently no good calorie counter app with the features that people want.
+| Project Result | An app that makes it easier for people to lose and gain weight by keeping track of their calories.
+| Project goal(s) | The app should be fun to use and motivate more people to do sports and fitness.
+| Project Description | The app calculates the calories of meals and can also automatically count the steps.
+
+                         In addition, one can enter a workout to get the most accurate final calorie results.
+|===
+
+== Project phases / milestones
+
+Description of the project phases and their verifiable interim results.
+
+|===
+| stage | Milestone / Result | Target date | release
+
+| Create Plantuml | Plantuml diagram ready | 14.11.2022 | -
+| Create Food Calculator | Calculates Calories in a Meal | 02/13/2023 | -
+| Create weight and calorie calculator | Calculates weight and calories | 07/03/2023 | -
+|===
+
+== Project data
+
+[cols="h, s"]
+|===
+| Project start | 10/17/2022
+| end of project | 06/10/2023
+|===
+
+== project
+
+[cols="h, s"]
+|===
+| Project Risks | That it is not completed in the school year
+| Project organization | Project manager: Fabian Stroschneider
+
+                         Project team: Moritz Gruber, Tobias Aichinger, Markus Breinesberger
+| Completion of the project assignment | Date, signatures of all responsible persons
+|===
