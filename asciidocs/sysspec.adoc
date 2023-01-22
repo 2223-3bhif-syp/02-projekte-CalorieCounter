@@ -13,11 +13,42 @@ Wir sind ein Team aus 5 Schuelern und besuchen die Hoehere Technische Bundeslehr
 
 Es gibt derzeit keine Kalorienzaehler-App mit den Features, die sich die Leute wuenschen.
 
+== Problemstellung
+
 Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblick ueber ihren Kalorienverbrauch und ihre Kalorienaufnahme.
+
+== Aufgabenstellung
+
+=== Funktionale Anforderungen
+
+[plantuml,structure,png]
+----
+include::plantuml/Usecasediagramm.puml[]
+----
+
+Das Program soll das aktuelle und das Wunschgewicht abfragen.
+
+Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.
+
+Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.
+
+Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.
+
+=== Nicht-funktionale Anforderungen
+
+* Sicherheitsanforderung
+- Daten müssen vor Dritten geschützt werden
+
 
 == Zielsetzung
 
 Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
+
+== Mengengerüst
+
+== Rahmenbedingungen
+
+Programmiersprache: Java
 
 == Datenmodell
 [plantuml,struct,png]
@@ -25,20 +56,9 @@ Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness mot
 include::plantuml/Klassendiagramm.puml[]
 ----
 
-== Anforderungen (Soll)
+== Lieferumfang
 
-[plantuml,structure,png]
-----
-include::plantuml/Usecasediagramm.puml[]
-----
-
-Das Program soll das aktuelle und das wunsch Gewicht abfragen.
-
-Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.
-
-Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.
-
-Nach laengerer nutzungszeit sollen Statistiken zur Verfuegung stehen.
+Der Kunde bekommt eine funktionierende App.
 
 == Administratives
 
