@@ -20,7 +20,7 @@ Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblic
 Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
 
 == Datenmodell
-[plantuml,structure,png]
+[plantuml,struct,png]
 ----
 include::plantuml/Klassendiagramm.puml[]
 ----
