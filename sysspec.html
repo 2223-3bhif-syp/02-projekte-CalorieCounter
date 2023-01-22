@@ -450,10 +450,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_beschreibung_der_ausgangslage">1. Beschreibung der Ausgangslage</a></li>
 <li><a href="#_ist_zustand">2. Ist-Zustand</a></li>
-<li><a href="#_zielsetzung">3. Zielsetzung</a></li>
-<li><a href="#_datenmodell">4. Datenmodell</a></li>
-<li><a href="#_anforderungen_soll">5. Anforderungen (Soll)</a></li>
-<li><a href="#_administratives">6. Administratives</a></li>
+<li><a href="#_problemstellung">3. Problemstellung</a></li>
+<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a>
+<ul class="sectlevel2">
+<li><a href="#_funktionale_anforderungen">4.1. Funktionale Anforderungen</a></li>
+<li><a href="#_nicht_funktionale_anforderungen">4.2. Nicht-funktionale Anforderungen</a></li>
+</ul>
+</li>
+<li><a href="#_zielsetzung">5. Zielsetzung</a></li>
+<li><a href="#_mengengerüst">6. Mengengerüst</a></li>
+<li><a href="#_rahmenbedingungen">7. Rahmenbedingungen</a></li>
+<li><a href="#_datenmodell">8. Datenmodell</a></li>
+<li><a href="#_lieferumfang">9. Lieferumfang</a></li>
+<li><a href="#_administratives">10. Administratives</a></li>
 </ul>
 </div>
 </div>
@@ -472,13 +481,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Es gibt derzeit keine Kalorienzaehler-App mit den Features, die sich die Leute wuenschen.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>3. Problemstellung</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblick ueber ihren Kalorienverbrauch und ihre Kalorienaufnahme.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_zielsetzung"><a class="anchor" href="#_zielsetzung"></a>3. Zielsetzung</h2>
+<h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/structure.png" alt="structure" width="339" height="320">
+</div>
+</div>
+<div class="paragraph">
+<p>Das Program soll das aktuelle und das Wunschgewicht abfragen.</p>
+</div>
+<div class="paragraph">
+<p>Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.</p>
+</div>
+<div class="paragraph">
+<p>Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.</p>
+</div>
+<div class="paragraph">
+<p>Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.2. Nicht-funktionale Anforderungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Sicherheitsanforderung</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Daten müssen vor Dritten geschützt werden</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_zielsetzung"><a class="anchor" href="#_zielsetzung"></a>5. Zielsetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.</p>
@@ -486,7 +542,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>4. Datenmodell</h2>
+<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>6. Mengengerüst</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>7. Rahmenbedingungen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Programmiersprache: Java</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>8. Datenmodell</h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
@@ -496,29 +566,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_anforderungen_soll"><a class="anchor" href="#_anforderungen_soll"></a>5. Anforderungen (Soll)</h2>
+<h2 id="_lieferumfang"><a class="anchor" href="#_lieferumfang"></a>9. Lieferumfang</h2>
 <div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/structure.png" alt="structure" width="339" height="320">
-</div>
-</div>
 <div class="paragraph">
-<p>Das Program soll das aktuelle und das wunsch Gewicht abfragen.</p>
-</div>
-<div class="paragraph">
-<p>Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.</p>
-</div>
-<div class="paragraph">
-<p>Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.</p>
-</div>
-<div class="paragraph">
-<p>Nach laengerer nutzungszeit sollen Statistiken zur Verfuegung stehen.</p>
+<p>Der Kunde bekommt eine funktionierende App.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_administratives"><a class="anchor" href="#_administratives"></a>6. Administratives</h2>
+<h2 id="_administratives"><a class="anchor" href="#_administratives"></a>10. Administratives</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -532,7 +588,7 @@ Team: Stroschneider, Gruber, Breinesberger, Aichinger und Horner</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-22 18:52:49 UTC
+Last updated 2023-01-22 22:28:41 UTC
 </div>
 </div>
 </body>
