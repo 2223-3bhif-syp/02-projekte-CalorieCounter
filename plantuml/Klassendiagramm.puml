@@ -1,42 +1,32 @@
 @startuml
 
+top to bottom direction
+
 class User {
-    - userName: String
+    - email: String
+    - username: String
     - password: Hash
-    - weight: Float
-    - height: Float
-    - plan: Plan
-    + getName(): String
-    + getWeight(): Float
-    + getHeight(): Float
-    + calculatePlan(c: Calculator): Plan
-}
-class Plan {
-    - dailyGoal: Float
-    - startDate: Date
-    - endDate: Date
-    - ultimateGoal: Float
-    + achievedDailyGoal(c: Float): Boolean
-    + getOverview(): List<Float>
-}
-class Login {
-    - userName: String
-    - password: Hash
-}
-class Calculator {
-    - {static} instance
-    + {static} getInstance(): Calculator
-    + calculatePlan(s: Date, e: Date, goal: Float): Plan
-    + calculateCalories(m: Meal): Float
-}
-class Meal {
-    - ingredients: List<Float>
-    + getCalories(): Float
+    - weight: Double
+    - height: Double
 }
 
-Calculator --> Plan : creates
-Calculator --> Meal : uses
-User o-- Plan : contains
-User --> Login : needs
+class Goal {
+    - weight: Double
+    - dead-line: Date
+}
+
+class Food {
+    - name: String
+    - calories: Double
+}
+
+class CalorieCounter {
+    + addMeal(meal: List<Food>): void
+    + workout(calories: Double): void
+}
+
+User "1" - "1" Goal : > tries
+Goal "1" - "1" CalorieCounter : > has
+CalorieCounter "1" - "*" Food : > uses
 
 @enduml
