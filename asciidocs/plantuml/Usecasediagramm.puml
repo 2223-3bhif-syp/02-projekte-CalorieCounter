@@ -1,0 +1,19 @@
+@startuml
+
+left to right direction
+
+actor "Benutzer" as user
+
+rectangle Rechnerverwendung {
+    usecase "Ziel abfragen" as ziel
+    usecase "Vorschlag bekommen" as vorschlag
+    usecase "Statistiken abfragen" as stats
+    usecase "Kalorien eingeben" as eingeben
+
+    user -- ziel
+    user -- vorschlag
+    user -- stats
+    user -- eingeben
+}
+
+@enduml

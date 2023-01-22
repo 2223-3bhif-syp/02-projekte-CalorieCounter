@@ -19,11 +19,22 @@ Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblic
 
 Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
 
+== Datenmodell
+[plantuml,structure,png]
+----
+include::plantuml/Klassendiagramm.puml[]
+----
+
 == Anforderungen (Soll)
+
+[plantuml,structure,png]
+----
+include::plantuml/Usecasediagramm.puml[]
+----
 
 Das Program soll das aktuelle und das wunsch Gewicht abfragen.
 
-Außerdem sollen eingegebenen Kalorien gezaehlt und ausgewertet werden.
+Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.
 
 Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.
 
