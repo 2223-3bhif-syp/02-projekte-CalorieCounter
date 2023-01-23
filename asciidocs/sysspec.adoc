@@ -20,10 +20,10 @@ Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblic
 == Aufgabenstellung
 
 === Funktionale Anforderungen
-
-[plantuml,structure,png]
+==== Use-case diagram
+[plantuml,ucd,png]
 ----
-include::plantuml/Usecasediagramm.puml[]
+include::plantuml/Usecasediagram.puml[]
 ----
 
 Das Program soll das aktuelle und das Wunschgewicht abfragen.
@@ -44,14 +44,12 @@ Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.
 
 Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
 
-== Mengengerüst
-
 == Rahmenbedingungen
 
 Programmiersprache: Java
 
 == Datenmodell
-[plantuml,struct,png]
+[plantuml,cld,png]
 ----
 include::plantuml/Klassendiagramm.puml[]
 ----
