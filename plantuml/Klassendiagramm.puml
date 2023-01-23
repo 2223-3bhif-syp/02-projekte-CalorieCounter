@@ -26,7 +26,7 @@ class CalorieCounter {
 }
 
 User "1" - "1" Goal : > tries
-User "1" - "1" CalorieCounter : > has
+User "*" - "1" CalorieCounter : > has
 CalorieCounter "1" - "*" Food : > uses
 
 @enduml
