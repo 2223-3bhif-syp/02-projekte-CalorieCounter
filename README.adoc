@@ -7,6 +7,7 @@ Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheitert es oft
 Die App soll nicht nur das mitverfolgen von Kalorien erleichtern. Sondern auch beim Training einsetzbar sein, womit man Menschen zu Sport und Fitness motivieren kann.
 
 == Dokumente
+* https://vm81.htl-leonding.ac.at/issues/23kalorien[Product backlog]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/[Index]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Klassendiagramm[Klassendiagramm]
