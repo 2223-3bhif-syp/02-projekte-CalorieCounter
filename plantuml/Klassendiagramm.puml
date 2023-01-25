@@ -12,21 +12,16 @@ class User {
 
 class Goal {
     - weight: Double
-    - dead-line: Date
+    - deadline: Date
 }
 
-class Food {
+class Workout {
     - name: String
-    - calories: Double
-}
-
-class CalorieCounter {
-    + addMeal(meal: List<Food>): void
-    + workout(calories: Double): void
+    - calories-burned: Double
+    - duration: Double
 }
 
 User "1" - "1" Goal : > tries
-User "*" - "1" CalorieCounter : > has
-CalorieCounter "1" - "*" Food : > uses
+Workout "1" - "*" User : < does
 
 @enduml
