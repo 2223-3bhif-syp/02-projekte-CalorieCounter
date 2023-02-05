@@ -95,6 +95,7 @@ Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness mot
 == Rahmenbedingungen
 
 Programmiersprache: Java
+
 Datenbank: Apache Derby
 
 == Lieferumfang
