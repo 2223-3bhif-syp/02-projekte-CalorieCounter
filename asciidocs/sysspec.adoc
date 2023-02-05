@@ -80,6 +80,12 @@ include::plantuml/Klassendiagramm.puml[]
 image::images/calorie-counter-layout.png[]
 ====
 
+.Home & Settings
+[%collapsible]
+====
+image::images/calorie-counter-home-settings.png[]
+====
+
 
 == Zielsetzung
 
