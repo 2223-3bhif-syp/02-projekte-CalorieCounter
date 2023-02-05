@@ -74,16 +74,17 @@ include::plantuml/Klassendiagramm.puml[]
 - Das System soll, Wartungs- und Reparaturarbeiten in einfacher und schneller Weise durchführen können.
 
 === Wireframes
-.Kalorien Übersicht
-[%collapsible]
-====
-image::images/calorie-counter-layout.png[]
-====
 
 .Home & Settings
 [%collapsible]
 ====
 image::images/calorie-counter-home-settings.png[]
+====
+
+.Kalorien Übersicht
+[%collapsible]
+====
+image::images/calorie-counter-layout.png[]
 ====
 
 
