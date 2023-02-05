@@ -21,7 +21,15 @@ class Workout {
     - duration: Double
 }
 
+class Food {
+    - name: String
+    - calories: Double
+    - amount: int
+}
+
 User "1" - "1" Goal : > tries
-Workout "1" - "*" User : < does
+Workout "1" - "*" User : < enters
+User "*" -- "*" Food
+(User, Food) .. Consumption
 
 @enduml
