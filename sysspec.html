@@ -5,9 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<meta name="author" content="Stroschneider, Gruber, Breinesberger, Aichinger und Horner">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>Pflichtenheft</title>
+<title>Pflichtenheft Kalorienrechner</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,10 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Pflichtenheft</h1>
-<div class="details">
-<span id="author" class="author">Stroschneider, Gruber, Breinesberger, Aichinger und Horner</span><br>
-</div>
+<h1>Pflichtenheft Kalorienrechner</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -459,13 +455,44 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_zielsetzung">5. Zielsetzung</a></li>
 <li><a href="#_rahmenbedingungen">6. Rahmenbedingungen</a></li>
-<li><a href="#_datenmodell">7. Datenmodell</a></li>
-<li><a href="#_lieferumfang">8. Lieferumfang</a></li>
-<li><a href="#_administratives">9. Administratives</a></li>
+<li><a href="#_lieferumfang">7. Lieferumfang</a></li>
+<li><a href="#_administratives">8. Administratives</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Version: 1.0</p>
+</div>
+<div class="paragraph">
+<p>Version Date: 05-02-2023</p>
+</div>
+<div class="paragraph">
+<p>Authors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="mailto:f.stroschneider@students.htl-leonding.ac.at">f.stroschneider@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p><a href="mailto:t.aichinger@students.htl-leonding.ac.at">t.aichinger@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p><a href="mailto:m.gruber4@students.htl-leonding.ac.at">m.gruber4@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p><a href="mailto:m.breinesberger@students.htl-leonding.ac.at">m.breinesberger@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p><a href="mailto:p.horner@students.htl-leonding.ac.at">p.horner@students.htl-leonding.ac.at</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_beschreibung_der_ausgangslage"><a class="anchor" href="#_beschreibung_der_ausgangslage"></a>1. Beschreibung der Ausgangslage</h2>
 <div class="sectionbody">
@@ -515,6 +542,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_domain_object_model"><a class="anchor" href="#_domain_object_model"></a>4.1.2. Domain Object Model</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/cld.png" alt="cld" width="641" height="142">
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.2. Nicht-funktionale Anforderungen</h3>
@@ -525,7 +560,57 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>Daten müssen vor Dritten geschützt werden</p>
+<p>Die Daten sollen vor Dritten geschützt werden.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Zuverlässigkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Das System soll, in einer vorhersehbaren und zuverlässigen Weise zu funktionieren.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Benutzbarkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Das System soll, so gestaltet werden, dass es einfach und intuitiv von Benutzern verwendet werden kann.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Effizienz</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Das System soll die Ressourcen effizient nutzen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Übertragbarkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Das System soll, auf andere Systeme oder Umgebungen übertragen werden können.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wartbarkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Das System soll, Wartungs- und Reparaturarbeiten in einfacher und schneller Weise durchführen können.</p>
 </li>
 </ul>
 </div>
@@ -552,17 +637,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>7. Datenmodell</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/cld.png" alt="cld" width="641" height="142">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_lieferumfang"><a class="anchor" href="#_lieferumfang"></a>8. Lieferumfang</h2>
+<h2 id="_lieferumfang"><a class="anchor" href="#_lieferumfang"></a>7. Lieferumfang</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Der Kunde bekommt eine funktionierende App.</p>
@@ -570,7 +645,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_administratives"><a class="anchor" href="#_administratives"></a>9. Administratives</h2>
+<h2 id="_administratives"><a class="anchor" href="#_administratives"></a>8. Administratives</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -584,7 +659,7 @@ Team: Stroschneider, Gruber, Breinesberger, Aichinger und Horner</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-25 16:03:34 UTC
+Last updated 2023-02-05 13:02:15 UTC
 </div>
 </div>
 </body>
