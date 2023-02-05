@@ -18,7 +18,7 @@ Authors:
 
 == Beschreibung der Ausgangslage
 
-Wir sind ein Team aus 5 Schülern und besuchen die Höhere Technische Bundeslehranstalt Leonding.
+Wir sind ein Team aus 5 Schülern, besuchen die Höhere Technische Bundeslehranstalt Leonding und im Rahmen des SYP-Unterrichts top motiviert ein neues Projekt rauszubringen.
 
 == Ist-Zustand
 
