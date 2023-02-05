@@ -72,6 +72,10 @@ include::plantuml/Klassendiagramm.puml[]
 * Wartbarkeit
 - Das System soll, Wartungs- und Reparaturarbeiten in einfacher und schneller Weise durchführen können.
 
+=== Wireframe
+image::images/calorie-counter-layout.png[]
+
+
 == Zielsetzung
 
 Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
