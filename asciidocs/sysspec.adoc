@@ -11,22 +11,23 @@ Version Date: 05-02-2023
 Authors:
 
 * f.stroschneider@students.htl-leonding.ac.at
-* t.aichinger@students.htl-leonding.ac.at
+* t.aichinger1@students.htl-leonding.ac.at
 * m.gruber4@students.htl-leonding.ac.at
 * m.breinesberger@students.htl-leonding.ac.at
-* p.horner@students.htl-leonding.ac.at
+//* p.horner@students.htl-leonding.ac.at
 
 == Beschreibung der Ausgangslage
 
-Wir sind ein Team aus 5 Schuelern und besuchen die Hoehere Technische Bundeslehranstalt Leonding.
+Wir sind ein Team aus 5 Schülern und besuchen die Höhere Technische Bundeslehranstalt Leonding.
 
 == Ist-Zustand
 
-Es gibt derzeit keine Kalorienzaehler-App mit den Features, die sich die Leute wuenschen.
+Es gibt derzeit keine Kalorienzähler-App mit den Features, die sich die Leute wünschen.
 
 == Problemstellung
 
-Die Leute neigen dazu, Ihre Kalorien nicht zu zaehlen und haben keinen Ueberblick ueber ihren Kalorienverbrauch und ihre Kalorienaufnahme.
+Die Leute neigen dazu, Ihre Kalorien nicht zu zählen und haben keinen Überblick über ihren Kalorienverbrauch und ihre Kalorienaufnahme.
+Eine Folge daraus ist es, dass immer mehr Menschen übergewichtig werden.
 
 == Aufgabenstellung
 
@@ -39,11 +40,11 @@ include::plantuml/Usecasediagram.puml[]
 
 Das Program soll das aktuelle und das Wunschgewicht abfragen.
 
-Außerdem sollen eingegebene Kalorien gezaehlt und ausgewertet werden.
+Außerdem sollen eingegebene Kalorien gezählt und ausgewertet werden.
 
-Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen kann.
+Der Benutzer bekommt Vorschläge wie er am effizientesten Kalorien verbrennen kann.
 
-Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.
+Nach längerer Nutzungszeit sollen Statistiken zur Verfügung stehen.
 
 ==== Domain Object Model
 
@@ -72,8 +73,12 @@ include::plantuml/Klassendiagramm.puml[]
 * Wartbarkeit
 - Das System soll, Wartungs- und Reparaturarbeiten in einfacher und schneller Weise durchführen können.
 
-=== Wireframe
+=== Wireframes
+.Kalorien Übersicht
+[%collapsible]
+====
 image::images/calorie-counter-layout.png[]
+====
 
 
 == Zielsetzung

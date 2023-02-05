@@ -4,7 +4,7 @@
 Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheitert es oft an der Umständlichkeit sich bei jeder einzelnen Mahlzeit die Kalorien der einzelnen Zutaten zu suchen.
 
 == Aufgabenstellung
-Die App soll nicht nur das mitverfolgen von Kalorien erleichtern. Sondern auch beim Training einsetzbar sein, womit man Menschen zu Sport und Fitness motivieren kann.
+Die App soll nicht nur das Mitverfolgen von Kalorien erleichtern. Sondern auch beim Training einsetzbar sein, womit man Menschen zu Sport und Fitness motivieren kann.
 
 == Dokumente
 * https://vm81.htl-leonding.ac.at/agiles/99-368/current[Product backlog]
@@ -12,3 +12,10 @@ Die App soll nicht nur das mitverfolgen von Kalorien erleichtern. Sondern auch b
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Klassendiagramm[Klassendiagramm]
 * https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/sysspec[Pflichtenheft]
+
+== Wireframes
+.Kalorien Übersicht
+[%collapsible]
+====
+image::asciidocs/images/calorie-counter-layout.png[]
+====

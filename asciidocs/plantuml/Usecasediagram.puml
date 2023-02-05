@@ -4,7 +4,7 @@ left to right direction
 
 actor "Benutzer" as user
 
-rectangle Rechnerverwendung {
+rectangle Rechneranwendung {
     usecase "Ziel abfragen" as ziel
     usecase "Vorschlag bekommen" as vorschlag
     usecase "Statistiken abfragen" as stats
