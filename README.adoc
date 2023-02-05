@@ -19,3 +19,9 @@ Die App soll nicht nur das Mitverfolgen von Kalorien erleichtern. Sondern auch b
 ====
 image::asciidocs/images/calorie-counter-layout.png[]
 ====
+
+.Home & Settings
+[%collapsible]
+====
+image::asciidocs/images/calorie-counter-home-settings.png[]
+====
