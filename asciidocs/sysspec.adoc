@@ -1,9 +1,20 @@
-= Pflichtenheft
-Stroschneider, Gruber, Breinesberger, Aichinger und Horner
+= Pflichtenheft Kalorienrechner
 :toc: left
 :sectnums:
 :toclevels: 1
 :table-caption:
+
+Version: 1.0
+
+Version Date: 05-02-2023
+
+Authors:
+
+* f.stroschneider@students.htl-leonding.ac.at
+* t.aichinger@students.htl-leonding.ac.at
+* m.gruber4@students.htl-leonding.ac.at
+* m.breinesberger@students.htl-leonding.ac.at
+* p.horner@students.htl-leonding.ac.at
 
 == Beschreibung der Ausgangslage
 
@@ -34,11 +45,32 @@ Der Benutzer bekommt Vorschlaege wie er am effizientesten Kalorien verbrennen ka
 
 Nach laengerer Nutzungszeit sollen Statistiken zur Verfuegung stehen.
 
+==== Domain Object Model
+
+[plantuml,cld,png]
+----
+include::plantuml/Klassendiagramm.puml[]
+----
+
 === Nicht-funktionale Anforderungen
 
 * Sicherheitsanforderung
-- Daten müssen vor Dritten geschützt werden
+- Die Daten sollen vor Dritten geschützt werden.
 
+* Zuverlässigkeit
+- Das System soll, in einer vorhersehbaren und zuverlässigen Weise zu funktionieren.
+
+* Benutzbarkeit
+- Das System soll, so gestaltet werden, dass es einfach und intuitiv von Benutzern verwendet werden kann.
+
+* Effizienz
+- Das System soll die Ressourcen effizient nutzen.
+
+* Übertragbarkeit
+- Das System soll, auf andere Systeme oder Umgebungen übertragen werden können.
+
+* Wartbarkeit
+- Das System soll, Wartungs- und Reparaturarbeiten in einfacher und schneller Weise durchführen können.
 
 == Zielsetzung
 
@@ -47,12 +79,6 @@ Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness mot
 == Rahmenbedingungen
 
 Programmiersprache: Java
-
-== Datenmodell
-[plantuml,cld,png]
-----
-include::plantuml/Klassendiagramm.puml[]
-----
 
 == Lieferumfang
 
