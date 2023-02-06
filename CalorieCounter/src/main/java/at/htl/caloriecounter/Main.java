@@ -1,3 +1,8 @@
+/* HTL Leonding
+ * 3BHIF
+ * SYP: Kalorienrechner
+ */
+
 package at.htl.caloriecounter;
 
 public class Main {
