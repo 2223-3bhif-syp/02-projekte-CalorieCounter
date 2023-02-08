@@ -15,6 +15,14 @@ Icon
 # Thumbnails
 ._*
 
+# DB
+**/db
+**application.properties
+**datasource.txt
+**derbydb-create.sh
+**derbydb-start.sh
+**CalorieCounter.iml
+
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
