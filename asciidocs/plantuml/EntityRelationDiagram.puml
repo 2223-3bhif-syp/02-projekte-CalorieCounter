@@ -1,0 +1,35 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class CONSUMPTION {
+   AMOUNT: integer
+   CUSTOMER_CON_ID: integer
+   FOOD_CON_ID: integer
+}
+class CUSTOMER {
+   EMAIL: varchar(50)
+   USERNAME: varchar(20)
+   PASSWORD: varchar(20)
+   WEIGHT: double
+   HEIGHT: double
+   GOAL_ID: integer
+   CUSTOMER_ID: integer
+}
+class FOOD {
+   NAME: varchar(20)
+   CALORIES: double
+   FOOD_ID: integer
+}
+class GOAL {
+   WEIGHT: double
+   DEADLINE: date
+   ID: integer
+}
+
+CONSUMPTION  "*" -[#595959,plain]- "1   "  CUSTOMER
+CONSUMPTION  "*" -[#595959,plain]- "1"  FOOD
+CUSTOMER     "1" -[#595959,plain]-"1"  GOAL
+@enduml
