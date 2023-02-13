@@ -6,6 +6,7 @@ public class Customer {
     private String password;
     private double weight;
     private double height;
+    private Long id;
 
     public Customer (String email, String username, String password, double weight, double height) {
         this.email = email;
@@ -13,6 +14,14 @@ public class Customer {
         this.password = password;
         this.weight = weight;
         this.height = height;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
