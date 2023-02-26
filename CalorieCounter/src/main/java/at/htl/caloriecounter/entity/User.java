@@ -1,19 +1,23 @@
 package at.htl.caloriecounter.entity;
 
-public class Customer {
+public class User {
     private String email;
     private String username;
     private String password;
     private double weight;
     private double height;
     private Long id;
+    private Goal goal;
 
-    public Customer (String email, String username, String password, double weight, double height) {
+    public User() {}
+
+    public User (String email, String username, String password, double weight, double height, Goal goal) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.weight = weight;
         this.height = height;
+        this.goal = goal;
     }
 
     public Long getId() {
@@ -62,5 +66,13 @@ public class Customer {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public Goal getGoal() {
+        return this.goal;
+    }
+
+    public void setGoal(Goal goal) {
+        this.goal = goal;
     }
 }

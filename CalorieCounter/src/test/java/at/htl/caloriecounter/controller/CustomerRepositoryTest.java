@@ -1,6 +1,6 @@
 package at.htl.caloriecounter.controller;
 
-import at.htl.caloriecounter.entity.Customer;
+import at.htl.caloriecounter.entity.User;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.Test;
 
@@ -10,16 +10,16 @@ import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
 class CustomerRepositoryTest {
-    CustomerRepository customerRepository = new CustomerRepository();
+    UserRepository userRepository = new UserRepository();
 
     @Test
     void insertCustomer_ok() {
         // arrange
         DataSource ds = Database.getDataSource();
-        Customer customer = new Customer("abc", "test", "test", 10.0, 20.0);
+        User customer = new User("abc", "test", "test", 10.0, 20.0, null);
         Table table = new Table(ds, "CUSTOMER");
         // act
-        customerRepository.create(customer);
+        userRepository.save(customer);
 
         // assert
         output(table).toConsole();
