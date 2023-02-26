@@ -5,38 +5,35 @@ import at.htl.caloriecounter.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository implements Persistent<User> {
+public class GoalRepository implements Persistent<Goal> {
     private DataSource dataSource = Database.getDataSource();
 
-   @Override
-   public void save(User user) {
-       if (user.getId() == null) {
-           this.insert(user);
-       } else {
-           this.update(user);
-       }
-   }
+    @Override
+    public void save(Goal goal) {
+        if (goal.getId() == null) {
+            this.insert(goal);
+        } else {
+            this.update(goal);
+        }
+    }
 
     @Override
-    public void update(User user) {
+    public void update(Goal goal) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=?,U_G_ID=? WHERE U_ID=?";
+            String sql = "UPDATE CC_GOAL SET G_WEIGHT=?, G_DEADLINE=? WHERE G_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getUsername());
-            statement.setString(3, user.getPassword());
-            statement.setDouble(4, user.getHeight());
-            statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getGoal().getId());
-            statement.setLong(7, user.getId());
+            statement.setDouble(1, goal.getWeight());
+            statement.setTimestamp(2, Timestamp.valueOf(goal.getDeadline()));
+            statement.setLong(3, goal.getId());
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of CC_USER failed, no rows affected");
+                throw new SQLException("Update of CC_GOAL failed, no rows affected");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,28 +41,24 @@ public class UserRepository implements Persistent<User> {
     }
 
     @Override
-    public void insert(User user) {
+    public void insert(Goal goal) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_G_ID) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE) VALUES (?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getUsername());
-            statement.setString(3, user.getPassword());
-            statement.setDouble(4, user.getHeight());
-            statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getGoal().getId());
+            statement.setDouble(1, goal.getWeight());
+            statement.setString(2, goal.getDeadline().toString());
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of CC_USER failed, no rows affected");
+                throw new SQLException("Update of CC_GOAL failed, no rows affected");
             }
 
             try (ResultSet keys = statement.getGeneratedKeys()) {
                 if (keys.next()) {
-                    user.setId(keys.getLong(1));
+                    goal.setId(keys.getLong(1));
                 } else {
-                    throw new SQLException("Insert into CC_USER failed, no ID obtained");
+                    throw new SQLException("Insert into CC_GOAL failed, no ID obtained");
                 }
             }
         } catch (SQLException e) {
@@ -76,7 +69,7 @@ public class UserRepository implements Persistent<User> {
     @Override
     public void delete(long id) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "DELETE FROM CC_USER WHERE U_ID=?";
+            String sql = "DELETE FROM CC_GOAL WHERE G_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -87,35 +80,32 @@ public class UserRepository implements Persistent<User> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-   }
+    }
 
     @Override
-    public List<User> findAll() {
-        List<User> users = new ArrayList<>();
+    public List<Goal> findAll() {
+        List<Goal> goals = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM CC_USER";
+            String sql = "SELECT * FROM CC_GOAL";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet result = preparedStatement.executeQuery();
 
-            GoalRepository goalRepository = new GoalRepository();
-
             while(result.next()) {
-                User user = new User();
-                user.setId(result.getLong("U_ID"));
-
-                users.add(user);
+                Goal goal = new Goal(result.getDouble("G_WEIGHT"), result.getTimestamp("G_DEADLINE").toLocalDateTime());
+                goal.setId(result.getLong("G_ID"));
+                goals.add(goal);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return users;
+        return goals;
     }
 
     @Override
-    public User findById(long id) {
-        User user = null;
+    public Goal findById(long id) {
+        Goal goal = null;
 
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM CC_USER WHERE U_ID=?";
@@ -124,16 +114,14 @@ public class UserRepository implements Persistent<User> {
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
-            GoalRepository goalRepository = new GoalRepository();
-
             if (result.next()) {
-                user = new User();
-                user.setId(result.getLong("U_ID"));
+                goal = new Goal(result.getDouble("G_WEIGHT"), result.getTimestamp("G_DEADLINE").toLocalDateTime());
+                goal.setId(result.getLong("U_ID"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return user;
+        return goal;
     }
 }

@@ -1,17 +1,16 @@
 package at.htl.caloriecounter.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Goal {
     private Long id;
     private double weight;
-    private LocalDate deadline;
+    private LocalDateTime deadline;
 
     public Goal() {
     }
 
-    public Goal(Long id, double weight, LocalDate deadline) {
-        this.id = id;
+    public Goal(double weight, LocalDateTime deadline) {
         this.weight = weight;
         this.deadline = deadline;
     }
@@ -24,11 +23,11 @@ public class Goal {
         this.weight = weight;
     }
 
-    public LocalDate getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
 
