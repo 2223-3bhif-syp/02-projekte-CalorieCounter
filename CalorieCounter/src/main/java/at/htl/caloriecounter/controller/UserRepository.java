@@ -101,7 +101,13 @@ public class UserRepository implements Persistent<User> {
             GoalRepository goalRepository = new GoalRepository();
 
             while(result.next()) {
-                User user = new User();
+                User user = new User(result.getString("U_EMAIL"),
+                        result.getString("U_USERNAME"),
+                        result.getString("U_PASSWORD"),
+                        result.getDouble("U_WEIGHT"),
+                        result.getDouble("U_HEIGHT"),
+                        goalRepository.findById(result.getLong("U_G_ID")));
+
                 user.setId(result.getLong("U_ID"));
 
                 users.add(user);

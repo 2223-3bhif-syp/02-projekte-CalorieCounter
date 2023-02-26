@@ -3,21 +3,20 @@ package at.htl.caloriecounter.entity;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class GoalTest {
+public class UserTest {
     @Test
-    void createGoal() {
+    void createUser() {
         // arrange
 
 
         // act
-        Goal goal = new Goal(23.0, LocalDateTime.of(2023, 2, 20, 0, 0));
+        User user = new User("m.muster@gmail.com", "musti", "1234", 80.3, 176, new Goal(70.0, LocalDate.of(2023, 3, 20)));
 
         // assert
-        assertThat(goal.getWeight()).isEqualTo(23.0);
+        assertThat(user.getWeight()).isEqualTo(80.3);
 
 
     }

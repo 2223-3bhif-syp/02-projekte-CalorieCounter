@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
-class CustomerRepositoryTest {
+class UserRepositoryTest {
     UserRepository userRepository = new UserRepository();
 
     @Test

@@ -3,6 +3,7 @@ package at.htl.caloriecounter.entity;
 public class Food {
     private String name;
     private double calories;
+    private Long id;
 
     public Food() {}
 
@@ -25,5 +26,11 @@ public class Food {
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 }
