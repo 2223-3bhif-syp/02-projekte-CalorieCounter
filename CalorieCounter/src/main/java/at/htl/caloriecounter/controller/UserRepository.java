@@ -55,7 +55,10 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getGoal().getId());
+
+            if (user.getGoal() != null || user.getGoal().getId() != null) {
+                statement.setLong(6, user.getGoal().getId());
+            }
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_USER failed, no rows affected");

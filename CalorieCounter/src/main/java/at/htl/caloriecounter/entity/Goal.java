@@ -1,6 +1,5 @@
 package at.htl.caloriecounter.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Goal {

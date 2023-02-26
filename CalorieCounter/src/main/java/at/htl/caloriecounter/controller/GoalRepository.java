@@ -48,7 +48,7 @@ public class GoalRepository implements Persistent<Goal> {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             statement.setDouble(1, goal.getWeight());
-            statement.setString(2, goal.getDeadline().toString());
+            statement.setTimestamp(2, Timestamp.valueOf(goal.getDeadline()));
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_GOAL failed, no rows affected");
