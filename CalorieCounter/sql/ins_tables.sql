@@ -13,6 +13,10 @@ VALUES ('m.musterfrau@students.htl-leonding.ac.at', 'Marie', 'M4r1!', 60.1, 169.
 INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_G_ID)
 VALUES ('t.testinger@students.htl-leonding.ac.at', 'theodore', 'th3od?0r!', 120.1, 193.0, 2);
 
+-- Workout
+INSERT INTO CC_WORKOUT (W_NAME, W_CALORIES, W_DURATION, W_U_ID)
+VALUES ('sport', 20.0, 5.30, 1);
+
 -- Essenstypen
 
 INSERT INTO CC_FOOD (F_NAME, F_CALORIES) VALUES ('APPLE', 95.0);
