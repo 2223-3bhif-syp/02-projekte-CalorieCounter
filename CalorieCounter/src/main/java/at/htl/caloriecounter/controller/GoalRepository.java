@@ -75,7 +75,7 @@ public class GoalRepository implements Persistent<Goal> {
             statement.setLong(1, id);
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Deletion of CC_USER failed, no rows affected");
+                throw new SQLException("Deletion of CC_GOAL failed, no rows affected");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,7 +108,7 @@ public class GoalRepository implements Persistent<Goal> {
         Goal goal = null;
 
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM CC_USER WHERE U_ID=?";
+            String sql = "SELECT * FROM CC_GOAL WHERE G_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -116,7 +116,7 @@ public class GoalRepository implements Persistent<Goal> {
 
             if (result.next()) {
                 goal = new Goal(result.getDouble("G_WEIGHT"), result.getTimestamp("G_DEADLINE").toLocalDateTime());
-                goal.setId(result.getLong("U_ID"));
+                goal.setId(result.getLong("G_ID"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
