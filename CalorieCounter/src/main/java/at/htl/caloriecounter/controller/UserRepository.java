@@ -23,7 +23,7 @@ public class UserRepository implements Persistent<User> {
     @Override
     public void update(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=?,U_G_ID=? WHERE U_ID=?";
+            String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=? WHERE U_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -32,8 +32,7 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getGoal().getId());
-            statement.setLong(7, user.getId());
+            statement.setLong(6, user.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_USER failed, no rows affected");
@@ -46,7 +45,7 @@ public class UserRepository implements Persistent<User> {
     @Override
     public void insert(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_G_ID) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT) VALUES (?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -55,10 +54,6 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-
-            if (user.getGoal() != null || user.getGoal().getId() != null) {
-                statement.setLong(6, user.getGoal().getId());
-            }
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_USER failed, no rows affected");
@@ -101,15 +96,12 @@ public class UserRepository implements Persistent<User> {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet result = preparedStatement.executeQuery();
 
-            GoalRepository goalRepository = new GoalRepository();
-
             while(result.next()) {
                 User user = new User(result.getString("U_EMAIL"),
                         result.getString("U_USERNAME"),
                         result.getString("U_PASSWORD"),
                         result.getDouble("U_WEIGHT"),
-                        result.getDouble("U_HEIGHT"),
-                        goalRepository.findById(result.getLong("U_G_ID")));
+                        result.getDouble("U_HEIGHT"));
 
                 user.setId(result.getLong("U_ID"));
 
@@ -133,10 +125,12 @@ public class UserRepository implements Persistent<User> {
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
-            GoalRepository goalRepository = new GoalRepository();
-
             if (result.next()) {
-                user = new User();
+                user = new User(result.getString("U_EMAIL"),
+                        result.getString("U_USERNAME"),
+                        result.getString("U_PASSWORD"),
+                        result.getDouble("U_WEIGHT"),
+                        result.getDouble("U_HEIGHT"));
                 user.setId(result.getLong("U_ID"));
             }
         } catch (SQLException e) {

@@ -14,7 +14,8 @@ class GoalTest {
 
 
         // act
-        Goal goal = new Goal(23.0, LocalDateTime.of(2023, 2, 20, 0, 0));
+        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170);
+        Goal goal = new Goal(23.0, LocalDateTime.of(2023, 2, 20, 0, 0), user);
 
         // assert
         assertThat(goal.getWeight()).isEqualTo(23.0);

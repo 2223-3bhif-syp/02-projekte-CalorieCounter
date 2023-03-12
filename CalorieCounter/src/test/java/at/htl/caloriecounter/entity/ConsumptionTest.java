@@ -13,7 +13,7 @@ public class ConsumptionTest {
 
 
         // act
-        User user = new User("m.muster@gmail.com", "musti", "1234", 80.3, 176, new Goal(70.0, LocalDateTime.of(2023, 3, 20, 0, 0)));
+        User user = new User("m.muster@gmail.com", "musti", "1234", 80.3, 176);
         Food food = new Food("tomate", 21.0);
         Consumption consumption = new Consumption(user, food, 2);
 

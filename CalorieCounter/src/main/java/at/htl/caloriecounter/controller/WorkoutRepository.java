@@ -1,6 +1,7 @@
 package at.htl.caloriecounter.controller;
 
 import at.htl.caloriecounter.entity.Goal;
+import at.htl.caloriecounter.entity.User;
 import at.htl.caloriecounter.entity.Workout;
 
 import javax.sql.DataSource;
@@ -24,14 +25,15 @@ public class WorkoutRepository implements Persistent<Workout> {
     @Override
     public void update(Workout workout) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE CC_WORKOUT SET  W_NAME=?, W_CALORIES=?, W_DURATION=? WHERE W_ID=?";
+            String sql = "UPDATE CC_WORKOUT SET  W_NAME=?, W_CALORIES=?, W_DURATION=?, W_U_ID=? WHERE W_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, workout.getName());
             statement.setDouble(2, workout.getCalories());
             statement.setDouble(3, workout.getDuration());
-            statement.setLong(4, workout.getId());
+            statement.setLong(4, workout.getUser().getId());
+            statement.setLong(5, workout.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_WORKOUT failed, no rows affected");
@@ -44,13 +46,17 @@ public class WorkoutRepository implements Persistent<Workout> {
     @Override
     public void insert(Workout workout) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO CC_WORKOUT (W_NAME, W_CALORIES, W_DURATION, W_U_ID) VALUES (?,?,?)";
+            String sql = "INSERT INTO CC_WORKOUT (W_NAME, W_CALORIES, W_DURATION, W_U_ID) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, workout.getName());
             statement.setDouble(2, workout.getCalories());
             statement.setDouble(3, workout.getDuration());
+
+            if (workout.getUser() != null || workout.getUser().getId() != null) {
+                statement.setLong(4, workout.getUser().getId());
+            }
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insert into CC_WORKOUT failed, no rows affected");
@@ -93,11 +99,14 @@ public class WorkoutRepository implements Persistent<Workout> {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet result = preparedStatement.executeQuery();
 
+            UserRepository userRepository = new UserRepository();
+
             while(result.next()) {
                 Workout workout = new Workout(
                         result.getString("W_NAME"),
                         result.getDouble("W_CALORIES"),
-                        result.getDouble("W_DURATION"));
+                        result.getDouble("W_DURATION"),
+                        userRepository.findById(result.getLong("W_U_ID")));
                 workouts.add(workout);
             }
         } catch (SQLException e) {
@@ -114,16 +123,18 @@ public class WorkoutRepository implements Persistent<Workout> {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM CC_WORKOUT WHERE W_ID=?";
 
-
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
+
+            UserRepository userRepository = new UserRepository();
 
             if (result.next()) {
                 workout = new Workout(
                         result.getString("W_NAME"),
                         result.getDouble("W_CALORIES"),
-                        result.getDouble("W_DURATION"));
+                        result.getDouble("W_DURATION"),
+                        userRepository.findById(result.getLong("W_U_ID")));
                 workout.setId(result.getLong("W_ID"));
             }
         } catch (SQLException e) {

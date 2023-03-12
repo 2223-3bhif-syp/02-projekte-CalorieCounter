@@ -5,13 +5,15 @@ public class Workout {
     private String name;
     private double calories;
     private double duration;
+    private User user;
 
     public Workout() {}
 
-    public Workout(String name, double calories, double duration) {
+    public Workout(String name, double calories, double duration, User user) {
         this.name = name;
         this.calories = calories;
         this.duration = duration;
+        this.user = user;
     }
 
     public Long getId() {
@@ -44,5 +46,13 @@ public class Workout {
 
     public void setDuration(double duration) {
         this.duration = duration;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

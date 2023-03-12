@@ -7,17 +7,15 @@ public class User {
     private double weight;
     private double height;
     private Long id;
-    private Goal goal;
 
     public User() {}
 
-    public User (String email, String username, String password, double weight, double height, Goal goal) {
+    public User (String email, String username, String password, double weight, double height) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.weight = weight;
         this.height = height;
-        this.goal = goal;
     }
 
     public Long getId() {
@@ -66,13 +64,5 @@ public class User {
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public Goal getGoal() {
-        return this.goal;
-    }
-
-    public void setGoal(Goal goal) {
-        this.goal = goal;
     }
 }

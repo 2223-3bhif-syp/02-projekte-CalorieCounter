@@ -1,17 +1,17 @@
--- Ziele
-INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE) VALUES (60.9, DATE(2023100));
-
-INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE) VALUES (118.3, DATE(2023100));
-
 -- Benutzer
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_G_ID)
-VALUES ('m.mustermann@students.htl-leonding.ac.at', 'Max', 'MAXL123', 63.5, 176.3, 1);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT)
+VALUES ('m.mustermann@students.htl-leonding.ac.at', 'Max', 'MAXL123', 63.5, 176.3);
 
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_G_ID)
-VALUES ('m.musterfrau@students.htl-leonding.ac.at', 'Marie', 'M4r1!', 60.1, 169.7, NULL);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT)
+VALUES ('m.musterfrau@students.htl-leonding.ac.at', 'Marie', 'M4r1!', 60.1, 169.7);
 
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_G_ID)
-VALUES ('t.testinger@students.htl-leonding.ac.at', 'theodore', 'th3od?0r!', 120.1, 193.0, 2);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT)
+VALUES ('t.testinger@students.htl-leonding.ac.at', 'theodore', 'th3od?0r!', 120.1, 193.0);
+
+-- Ziele
+INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE, G_U_ID) VALUES (60.9, DATE(2023100), 1);
+
+INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE, G_U_ID) VALUES (118.3, DATE(2023100), 2);
 
 -- Workout
 INSERT INTO CC_WORKOUT (W_NAME, W_CALORIES, W_DURATION, W_U_ID)

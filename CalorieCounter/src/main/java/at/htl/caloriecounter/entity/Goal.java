@@ -7,12 +7,15 @@ public class Goal {
     private double weight;
     private LocalDateTime deadline;
 
+    private User user;
+
     public Goal() {
     }
 
-    public Goal(double weight, LocalDateTime deadline) {
+    public Goal(double weight, LocalDateTime deadline, User user) {
         this.weight = weight;
         this.deadline = deadline;
+        this.user = user;
     }
 
     public double getWeight() {
@@ -37,6 +40,14 @@ public class Goal {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

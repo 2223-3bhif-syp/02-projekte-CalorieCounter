@@ -114,7 +114,7 @@ public class FoodRepository implements Persistent<Food> {
             ResultSet result = statement.executeQuery();
 
             if (result.next()) {
-                food = new Food();
+                food = new Food(result.getString("F_NAME"), result.getDouble("F_CALORIES"));;
                 food.setId(result.getLong("F_ID"));
             }
         } catch (SQLException e) {
