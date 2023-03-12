@@ -1,7 +1,8 @@
 CREATE TABLE CC_GOAL (
     G_ID                    INTEGER NOT NULL CONSTRAINT G_PK PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     G_WEIGHT                DOUBLE,
-    G_DEADLINE              DATE
+    G_DEADLINE              DATE,
+    G_U_ID                  INTEGER CONSTRAINT U_FK REFERENCES CC_USER(U_ID)
 );
 
 CREATE TABLE CC_USER (
@@ -10,8 +11,7 @@ CREATE TABLE CC_USER (
     U_USERNAME              VARCHAR(20),
     U_PASSWORD              VARCHAR(20),
     U_WEIGHT                DOUBLE,
-    U_HEIGHT                DOUBLE,
-    U_G_ID                  INTEGER CONSTRAINT G_FK REFERENCES CC_GOAL(G_ID)
+    U_HEIGHT                DOUBLE
 );
 
 CREATE TABLE CC_WORKOUT (
