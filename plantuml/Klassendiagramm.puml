@@ -27,8 +27,8 @@ class Food {
     - amount: int
 }
 
-User "1" - "1" Goal : > tries
-Workout "1" - "*" User : < enters
+User "1" - "*" Goal : > tries
+Workout "*" - "1" User : < enters
 User "*" -- "*" Food
 (User, Food) .. Consumption
 
