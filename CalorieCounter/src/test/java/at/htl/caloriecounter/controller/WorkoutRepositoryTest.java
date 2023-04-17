@@ -1,13 +1,15 @@
 package at.htl.caloriecounter.controller;
 
-import at.htl.caloriecounter.entity.Goal;
+import at.htl.caloriecounter.database.SqlRunner;
+import at.htl.caloriecounter.database.SqlScript;
 import at.htl.caloriecounter.entity.User;
 import at.htl.caloriecounter.entity.Workout;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
-import java.time.LocalDateTime;
 
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
@@ -15,6 +17,11 @@ import static org.assertj.db.output.Outputs.output;
 public class WorkoutRepositoryTest {
     UserRepository userRepository = new UserRepository();
     WorkoutRepository workoutRepository = new WorkoutRepository();
+
+    @BeforeAll
+    static void createTables() {
+        SqlRunner.runScript(SqlScript.CREATE);
+    }
 
     @Test
     void insertWorkout_ok() {
@@ -35,5 +42,10 @@ public class WorkoutRepositoryTest {
                 .row(0)
                 //.column("CUSTOMER_ID").value().isEqualTo(4)
                 .column("W_NAME").value().isEqualTo("Laufen");
+    }
+
+    @AfterAll
+    static void dropTables() {
+        SqlRunner.runScript(SqlScript.DROP);
     }
 }

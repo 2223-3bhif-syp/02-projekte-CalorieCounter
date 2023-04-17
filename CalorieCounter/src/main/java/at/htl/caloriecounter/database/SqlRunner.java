@@ -27,7 +27,6 @@ public class SqlRunner {
             Properties scriptProperties = new Properties();
             scriptProperties.load(new FileInputStream(SCRIPT_PROPERTIES_PATH));
 
-
             DataSource dataSource = Database.getDataSource();
             Connection conn = dataSource.getConnection();
             System.out.println("Connection established......");
