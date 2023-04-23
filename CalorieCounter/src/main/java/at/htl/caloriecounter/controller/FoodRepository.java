@@ -67,7 +67,7 @@ public class FoodRepository implements Persistent<Food> {
     @Override
     public void delete(long id) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "DELETE FROM CC_FOOD WHERE U_ID=?";
+            String sql = "DELETE FROM CC_FOOD WHERE F_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);

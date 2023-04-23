@@ -60,6 +60,21 @@ public class FoodRepositoryTest {
                 .column("F_NAME").value().isEqualTo(food2.getName())
                 .column("F_CALORIES").value().isEqualTo(food2.getCalories());
     }
+    @Test
+    void delete_food() {
+        // arrange
+        Food food = new Food("tomato", 21.0);
+        foodRepository.save(food);
+        System.out.println(food.getId());
+
+        // act
+        foodRepository.delete(food.getId());
+
+        // assert
+        Table table = new Table(dataSource, "CC_FOOD");
+        output(table).toConsole();
+        assertThat(table).isEmpty();
+    }
 
     @AfterEach
     void dropTables() {
