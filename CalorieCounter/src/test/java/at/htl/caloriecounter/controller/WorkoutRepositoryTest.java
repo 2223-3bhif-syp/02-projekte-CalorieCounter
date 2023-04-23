@@ -5,9 +5,7 @@ import at.htl.caloriecounter.database.SqlScript;
 import at.htl.caloriecounter.entity.User;
 import at.htl.caloriecounter.entity.Workout;
 import org.assertj.db.type.Table;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
@@ -17,35 +15,36 @@ import static org.assertj.db.output.Outputs.output;
 public class WorkoutRepositoryTest {
     UserRepository userRepository = new UserRepository();
     WorkoutRepository workoutRepository = new WorkoutRepository();
+    DataSource dataSource = Database.getDataSource();
 
-    @BeforeAll
-    static void createTables() {
+    @BeforeEach
+    void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
     }
 
     @Test
     void insertWorkout_ok() {
         // arrange
-        DataSource ds = Database.getDataSource();
-        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170);
-        userRepository.save(user);
-
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
         Workout workout = new Workout("Laufen", 250, 1, user);
-        Table table = new Table(ds, "CC_WORKOUT");
 
         // act
+        userRepository.save(user);
         workoutRepository.save(workout);
 
         // assert
+        Table table = new Table(dataSource, "CC_WORKOUT");
         output(table).toConsole();
         assertThat(table).exists()
                 .row(0)
-                //.column("CUSTOMER_ID").value().isEqualTo(4)
-                .column("W_NAME").value().isEqualTo("Laufen");
+                .column("W_U_ID").value().isEqualTo(workout.getId())
+                .column("W_NAME").value().isEqualTo(workout.getName())
+                .column("W_CALORIES").value().isEqualTo((workout.getCalories()))
+                .column("W_DURATION").value().isEqualTo(workout.getDuration());
     }
 
-    @AfterAll
-    static void dropTables() {
+    @AfterEach
+    void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
     }
 }
