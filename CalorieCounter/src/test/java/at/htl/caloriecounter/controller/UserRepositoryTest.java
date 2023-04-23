@@ -4,9 +4,7 @@ import at.htl.caloriecounter.database.SqlRunner;
 import at.htl.caloriecounter.database.SqlScript;
 import at.htl.caloriecounter.entity.User;
 import org.assertj.db.type.Table;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
@@ -15,33 +13,35 @@ import static org.assertj.db.output.Outputs.output;
 
 class UserRepositoryTest {
     UserRepository userRepository = new UserRepository();
+    DataSource dataSource = Database.getDataSource();
 
-    @BeforeAll
-    static void createTables() {
+    @BeforeEach
+    void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
     }
 
     @Test
-    void insertUser_ok() {
+    void test_insert_user() {
         // arrange
-        DataSource ds = Database.getDataSource();
-
-        User user = new User("abc", "test", "test", 10.0, 20.0);
-        Table table = new Table(ds, "CC_USER");
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
 
         // act
         userRepository.save(user);
 
         // assert
+        Table table = new Table(dataSource, "CC_USER");
         output(table).toConsole();
         assertThat(table).exists()
                 .row(0)
-                //.column("CUSTOMER_ID").value().isEqualTo(4)
-                .column("U_PASSWORD").value().isEqualTo("test");
+                .column("U_EMAIL").value().isEqualTo(user.getEmail())
+                .column("U_PASSWORD").value().isEqualTo(user.getPassword())
+                .column("U_USERNAME").value().isEqualTo(user.getUsername())
+                .column("U_WEIGHT").value().isEqualTo(user.getWeight())
+                .column("U_HEIGHT").value().isEqualTo(user.getHeight());
     }
 
-    @AfterAll
-    static void dropTables() {
+    @AfterEach
+    void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
     }
 }
