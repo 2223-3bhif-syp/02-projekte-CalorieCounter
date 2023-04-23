@@ -55,6 +55,28 @@ class UserRepositoryTest {
         assertThat(table).isEmpty();
     }
 
+    @Test
+    void test_update_user() {
+        // arrange
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+
+        // act
+        userRepository.save(user);
+        user.setWeight(75.0);
+        userRepository.update(user);
+
+        // assert
+        Table table = new Table(dataSource, "CC_USER");
+        output(table).toConsole();
+        assertThat(table).exists()
+                .row(0)
+                .column("U_EMAIL").value().isEqualTo(user.getEmail())
+                .column("U_PASSWORD").value().isEqualTo(user.getPassword())
+                .column("U_USERNAME").value().isEqualTo(user.getUsername())
+                .column("U_WEIGHT").value().isEqualTo(user.getWeight())
+                .column("U_HEIGHT").value().isEqualTo(user.getHeight());
+    }
+
     @AfterEach
     void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
