@@ -76,6 +76,25 @@ public class FoodRepositoryTest {
         assertThat(table).isEmpty();
     }
 
+    @Test
+    void test_update_food() {
+        // arrange
+        Food food = new Food("tomato", 20.0);
+
+        // act
+        foodRepository.save(food);
+        food.setCalories(21.0);
+        foodRepository.update(food);
+
+        // assert
+        Table table = new Table(dataSource, "CC_FOOD");
+        output(table).toConsole();
+        assertThat(table).exists()
+                .row(0)
+                .column("F_NAME").value().isEqualTo(food.getName())
+                .column("F_CALORIES").value().isEqualTo(food.getCalories());
+    }
+
     @AfterEach
     void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
