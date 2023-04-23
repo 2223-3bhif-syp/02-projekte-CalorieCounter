@@ -22,7 +22,7 @@ public class GoalRepositoryTest {
     }
 
     @Test
-    void insert_goal() {
+    void test_insert_goal() {
         // arrange
         User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
         userRepository.save(user);
@@ -41,9 +41,10 @@ public class GoalRepositoryTest {
                 .column("G_U_ID").value().isEqualTo(user.getId());
     }
     @Test
-    void delete_goal() {
+    void test_delete_goal() {
         // arrange
-        User user = new User("b.jones@example.com", "b.jones", "password123", 80, 185);
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+
         userRepository.save(user);
 
         Goal goal = new Goal(75.0, LocalDateTime.of(2023, 10, 31, 0, 0), user);
@@ -56,6 +57,28 @@ public class GoalRepositoryTest {
         Table table = new Table(dataSource, "CC_GOAL");
         output(table).toConsole();
         assertThat(table).isEmpty();
+    }
+
+    @Test
+    void test_update_goal() {
+        // arrange
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+        Goal goal = new Goal(75.0, LocalDateTime.of(2023, 10, 31, 0, 0), user);
+
+        // act
+        userRepository.save(user);
+        goalRepository.save(goal);
+
+        goal.setWeight(70.0);
+        goalRepository.update(goal);
+
+        // assert
+        Table table = new Table(dataSource, "CC_GOAL");
+        output(table).toConsole();
+        assertThat(table).exists()
+                .column("G_WEIGHT").value().isEqualTo(goal.getWeight())
+                .column("G_DEADLINE").value().isEqualTo(goal.getDeadline())
+                .column("G_U_ID").value().isEqualTo(user.getId());
     }
 
     @AfterEach
