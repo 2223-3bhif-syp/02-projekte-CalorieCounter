@@ -6,17 +6,9 @@ import at.htl.caloriecounter.entity.Goal;
 import at.htl.caloriecounter.entity.User;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.*;
-
 import javax.sql.DataSource;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.Map;
-
-import static java.time.Month.*;
 import static org.assertj.db.api.Assertions.assertThat;
-import static org.assertj.db.api.assertions.impl.AssertionsOnValueEquality.isEqualTo;
 import static org.assertj.db.output.Outputs.output;
 
 public class GoalRepositoryTest {
@@ -47,6 +39,23 @@ public class GoalRepositoryTest {
                 .column("G_WEIGHT").value().isEqualTo(goal.getWeight())
                 .column("G_DEADLINE").value().isEqualTo(goal.getDeadline())
                 .column("G_U_ID").value().isEqualTo(user.getId());
+    }
+    @Test
+    void delete_goal() {
+        // arrange
+        User user = new User("b.jones@example.com", "b.jones", "password123", 80, 185);
+        userRepository.save(user);
+
+        Goal goal = new Goal(75.0, LocalDateTime.of(2023, 10, 31, 0, 0), user);
+        goalRepository.save(goal);
+
+        // act
+        goalRepository.delete(goal.getId());
+
+        // assert
+        Table table = new Table(dataSource, "CC_GOAL");
+        output(table).toConsole();
+        assertThat(table).isEmpty();
     }
 
     @AfterEach
