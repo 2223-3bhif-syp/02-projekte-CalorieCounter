@@ -5,48 +5,52 @@ import at.htl.caloriecounter.database.SqlScript;
 import at.htl.caloriecounter.entity.Goal;
 import at.htl.caloriecounter.entity.User;
 import org.assertj.db.type.Table;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Map;
 
+import static java.time.Month.*;
 import static org.assertj.db.api.Assertions.assertThat;
+import static org.assertj.db.api.assertions.impl.AssertionsOnValueEquality.isEqualTo;
 import static org.assertj.db.output.Outputs.output;
 
 public class GoalRepositoryTest {
-    UserRepository userRepository = new UserRepository();
     GoalRepository goalRepository = new GoalRepository();
+    DataSource dataSource = Database.getDataSource();
+    UserRepository userRepository = new UserRepository();
 
-    @BeforeAll
-    static void createTables() {
+    @BeforeEach
+    void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
     }
 
     @Test
-    void insertGoal_ok() {
+    void insert_goal() {
         // arrange
-        DataSource ds = Database.getDataSource();
-        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170);
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
         userRepository.save(user);
 
         Goal goal = new Goal(70.2, LocalDateTime.of(2023, 3, 20, 0, 0), user);
-        Table table = new Table(ds, "CC_GOAL");
 
         // act
         goalRepository.save(goal);
 
         // assert
+        Table table = new Table(dataSource, "CC_GOAL");
         output(table).toConsole();
         assertThat(table).exists()
-                .row(0)
-                .column("G_WEIGHT").value().isEqualTo(70.2);
+                .column("G_WEIGHT").value().isEqualTo(goal.getWeight())
+                .column("G_DEADLINE").value().isEqualTo(goal.getDeadline())
+                .column("G_U_ID").value().isEqualTo(user.getId());
     }
 
-    @AfterAll
-    static void dropTables() {
+    @AfterEach
+    void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
     }
 }

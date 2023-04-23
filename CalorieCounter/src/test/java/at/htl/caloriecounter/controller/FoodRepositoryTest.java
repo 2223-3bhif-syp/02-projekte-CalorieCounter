@@ -34,8 +34,8 @@ public class FoodRepositoryTest {
         output(table).toConsole();
         assertThat(table).exists()
                 .row(0)
-                .column("F_NAME").value().isEqualTo("tomato")
-                .column("F_CALORIES").value().isEqualTo(21.0);
+                .column("F_NAME").value().isEqualTo(food.getName())
+                .column("F_CALORIES").value().isEqualTo(food.getCalories());
     }
 
     @Test
@@ -54,11 +54,11 @@ public class FoodRepositoryTest {
         output(table).toConsole();
         assertThat(table).exists().hasNumberOfRows(2)
                 .row(0)
-                .column("F_NAME").value().isEqualTo("orange")
-                .column("F_CALORIES").value().isEqualTo(47.0)
+                .column("F_NAME").value().isEqualTo(food1.getName())
+                .column("F_CALORIES").value().isEqualTo(food1.getCalories())
                 .row(1)
-                .column("F_NAME").value().isEqualTo("banana")
-                .column("F_CALORIES").value().isEqualTo(89.0);
+                .column("F_NAME").value().isEqualTo(food2.getName())
+                .column("F_CALORIES").value().isEqualTo(food2.getCalories());
     }
 
     @AfterEach
