@@ -40,6 +40,21 @@ class UserRepositoryTest {
                 .column("U_HEIGHT").value().isEqualTo(user.getHeight());
     }
 
+    @Test
+    void test_delete_user() {
+        // arrange
+        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+
+        // act
+        userRepository.save(user);
+        userRepository.delete(user.getId());
+
+        // assert
+        Table table = new Table(dataSource, "CC_USER");
+        output(table).toConsole();
+        assertThat(table).isEmpty();
+    }
+
     @AfterEach
     void dropTables() {
         SqlRunner.runScript(SqlScript.DROP);
