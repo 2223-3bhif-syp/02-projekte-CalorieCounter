@@ -11,5 +11,5 @@
       fx:controller="at.htl.caloriecounter.controller.CalorieCounterController"
       prefHeight="400.0" prefWidth="600.0">
 
-    <Label>Test</Label>
+
 </VBox>
