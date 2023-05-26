@@ -3,7 +3,7 @@
  * SYP: Kalorienrechner
  */
 
-package at.htl.caloriecounter.controller;
+package at.htl.caloriecounter.repositories;
 
 import org.apache.derby.jdbc.ClientDataSource;
 

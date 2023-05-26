@@ -5,7 +5,7 @@
 
 package at.htl.caloriecounter.database;
 
-import at.htl.caloriecounter.controller.Database;
+import at.htl.caloriecounter.repositories.Database;
 import org.apache.ibatis.jdbc.ScriptRunner;
 
 import javax.sql.DataSource;

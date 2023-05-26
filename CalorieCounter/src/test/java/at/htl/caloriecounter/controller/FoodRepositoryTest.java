@@ -3,6 +3,8 @@ package at.htl.caloriecounter.controller;
 import at.htl.caloriecounter.database.SqlRunner;
 import at.htl.caloriecounter.database.SqlScript;
 import at.htl.caloriecounter.entity.Food;
+import at.htl.caloriecounter.repositories.Database;
+import at.htl.caloriecounter.repositories.FoodRepository;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.*;
 

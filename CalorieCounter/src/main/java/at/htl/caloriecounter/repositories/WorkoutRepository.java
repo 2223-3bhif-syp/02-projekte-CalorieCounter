@@ -1,7 +1,5 @@
-package at.htl.caloriecounter.controller;
+package at.htl.caloriecounter.repositories;
 
-import at.htl.caloriecounter.entity.Goal;
-import at.htl.caloriecounter.entity.User;
 import at.htl.caloriecounter.entity.Workout;
 
 import javax.sql.DataSource;

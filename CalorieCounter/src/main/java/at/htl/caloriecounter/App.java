@@ -9,11 +9,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
-    private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("view/"), 640, 550);
+        Scene scene = new Scene(loadFXML("/calorie-counter"), 640, 550);
         stage.setScene(scene);
         stage.setTitle("Calorie Counter");
         stage.show();
