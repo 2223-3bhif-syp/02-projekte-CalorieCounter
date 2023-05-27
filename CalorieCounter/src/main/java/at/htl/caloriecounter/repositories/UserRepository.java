@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements Persistent<User> {
-    private DataSource dataSource = Database.getDataSource();
+    private static DataSource dataSource = Database.getDataSource();
 
    @Override
    public void save(User user) {
@@ -137,5 +137,25 @@ public class UserRepository implements Persistent<User> {
         }
 
         return user;
+    }
+
+    public static boolean isValidUser(String username, String password) {
+       try (Connection connection = dataSource.getConnection()) {
+           String sql = "SELECT COUNT(*) as \"cnt\" FROM CC_USER WHERE UPPER(U_USERNAME) = ? AND U_PASSWORD = ?";
+
+           PreparedStatement statement = connection.prepareStatement(sql);
+           statement.setString(1, username.toUpperCase());
+           statement.setString(2, password);
+
+           ResultSet resultSet = statement.executeQuery();
+
+           if (resultSet.next() && resultSet.getInt("cnt") == 0) {
+               return false;
+           }
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+
+       return true;
     }
 }
