@@ -1,6 +1,7 @@
 package at.htl.caloriecounter.entity;
 
 public class Consumption {
+    private Long id;
     private User user;
     private Food food;
     private int amount;
@@ -35,5 +36,13 @@ public class Consumption {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
