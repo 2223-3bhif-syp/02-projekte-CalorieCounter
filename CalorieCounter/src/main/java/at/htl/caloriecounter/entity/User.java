@@ -1,5 +1,7 @@
 package at.htl.caloriecounter.entity;
 
+import java.util.Objects;
+
 public class User {
     private String email;
     private String username;
@@ -64,5 +66,20 @@ public class User {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+        return Double.compare(user.weight, weight) == 0
+                && Double.compare(user.height, height) == 0
+                && Objects.equals(email, user.email)
+                && Objects.equals(username, user.username)
+                && Objects.equals(password, user.password)
+                && Objects.equals(id, user.id);
     }
 }

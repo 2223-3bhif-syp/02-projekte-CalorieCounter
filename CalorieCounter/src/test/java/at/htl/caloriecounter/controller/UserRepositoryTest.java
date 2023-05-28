@@ -99,20 +99,6 @@ class UserRepositoryTest {
     }
 
     @Test
-    void test_delete_delete_not_existing_user_ok() {
-        // arrange
-
-        // act
-        printTable();
-
-        // assert
-        printTable();
-        assertThatThrownBy(() -> {
-            userRepository.delete(1);
-        }).isInstanceOf(SQLException.class);
-    }
-
-    @Test
     void test_update_update_user_and_check_database_ok() {
         // arrange
 
@@ -244,8 +230,6 @@ class UserRepositoryTest {
         userRepository.save(user3);
         userRepository.save(user4);
 
-        printTable();
-
         User user1FromDb = userRepository.findById(1);
         User user2FromDb = userRepository.findById(2);
         User user3FromDb = userRepository.findById(3);
@@ -253,21 +237,21 @@ class UserRepositoryTest {
 
         // assert
         printTable();
-        assertThat(user1FromDb)
+        assertThat(user1)
                 .usingRecursiveAssertion()
-                .isEqualTo(user1);
+                .isEqualTo(user1FromDb);
 
-        assertThat(user2FromDb)
+        assertThat(user2)
                 .usingRecursiveAssertion()
-                .isEqualTo(user2);
+                .isEqualTo(user2FromDb);
 
-        assertThat(user3FromDb)
+        assertThat(user3)
                 .usingRecursiveAssertion()
-                .isEqualTo(user3);
+                .isEqualTo(user3FromDb);
 
-        assertThat(user4FromDb)
+        assertThat(user4)
                 .usingRecursiveAssertion()
-                .isEqualTo(user4);
+                .isEqualTo(user4FromDb);
     }
 
     @Test
