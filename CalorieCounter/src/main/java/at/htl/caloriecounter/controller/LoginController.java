@@ -36,5 +36,4 @@ public class LoginController {
             (new Alert(Alert.AlertType.ERROR, "Invalid username or password")).show();
         }
     }
-
 }
