@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsumptionRepository implements Persistent<Consumption> {
-    private static DataSource dataSource = Database.getDataSource();
+    private static final DataSource dataSource = Database.getDataSource();
 
     @Override
     public void save(Consumption consumption) {
@@ -28,7 +28,8 @@ public class ConsumptionRepository implements Persistent<Consumption> {
 
             statement.setLong(1, consumption.getUser().getId());
             statement.setLong(2, consumption.getFood().getId());
-            statement.setLong(3, consumption.getId());
+            statement.setInt(3, consumption.getAmount());
+            statement.setLong(4, consumption.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of CC_CONSUMPTION failed, no rows affected");
