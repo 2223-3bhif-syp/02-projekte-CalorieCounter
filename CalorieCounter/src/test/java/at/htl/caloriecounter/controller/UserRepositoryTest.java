@@ -10,7 +10,12 @@ import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.db.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
 class UserRepositoryTest {
@@ -57,6 +62,20 @@ class UserRepositoryTest {
     }
 
     @Test
+    void test_save_save_null_and_check_database_ok() {
+        // arrange
+
+        // act
+        printTable();
+
+        // assert
+        printTable();
+        assertThatThrownBy(() -> {
+            userRepository.save(null);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void test_delete_delete_user_and_check_database_ok() {
         // arrange
         User user = new User(
@@ -77,6 +96,20 @@ class UserRepositoryTest {
         // assert
         printTable();
         assertThat(table).isEmpty();
+    }
+
+    @Test
+    void test_delete_delete_not_existing_user_ok() {
+        // arrange
+
+        // act
+        printTable();
+
+        // assert
+        printTable();
+        assertThatThrownBy(() -> {
+            userRepository.delete(1);
+        }).isInstanceOf(SQLException.class);
     }
 
     @Test
@@ -108,6 +141,147 @@ class UserRepositoryTest {
                 .column("U_USERNAME").value().isEqualTo(user.getUsername())
                 .column("U_WEIGHT").value().isEqualTo(user.getWeight())
                 .column("U_HEIGHT").value().isEqualTo(user.getHeight());
+    }
+
+    @Test
+    void test_update_update_null_ok() {
+        // arrange
+
+        // act
+        printTable();
+
+        // assert
+        printTable();
+        assertThatThrownBy(() -> {
+            userRepository.update(null);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void test_findAll_find_every_user_ok() {
+        // arrange
+        User user1 = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        User user2 = new User(
+                "m.grub@example.com",
+                "mo",
+                "123",
+                68,
+                179
+        );
+        User user3 = new User(
+                "t.aich@example.com",
+                "tobi",
+                "123",
+                73,
+                170
+        );
+        User user4 = new User(
+                "m.brein@example.com",
+                "max",
+                "123",
+                77,
+                174
+        );
+
+        // act
+        userRepository.save(user1);
+        userRepository.save(user2);
+        userRepository.save(user3);
+        userRepository.save(user4);
+
+        printTable();
+
+        List<User> users = userRepository.findAll();
+
+        // assert
+        printTable();
+        assertThat(users)
+                .hasSize(4)
+                .contains(user1, user2, user3, user4);
+    }
+
+    @Test
+    void test_findById_find_specific_user_ok() {
+        // arrange
+        User user1 = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        User user2 = new User(
+                "m.grub@example.com",
+                "mo",
+                "123",
+                68,
+                179
+        );
+        User user3 = new User(
+                "t.aich@example.com",
+                "tobi",
+                "123",
+                73,
+                170
+        );
+        User user4 = new User(
+                "m.brein@example.com",
+                "max",
+                "123",
+                77,
+                174
+        );
+
+        // act
+        userRepository.save(user1);
+        userRepository.save(user2);
+        userRepository.save(user3);
+        userRepository.save(user4);
+
+        printTable();
+
+        User user1FromDb = userRepository.findById(1);
+        User user2FromDb = userRepository.findById(2);
+        User user3FromDb = userRepository.findById(3);
+        User user4FromDb = userRepository.findById(4);
+
+        // assert
+        printTable();
+        assertThat(user1FromDb)
+                .usingRecursiveAssertion()
+                .isEqualTo(user1);
+
+        assertThat(user2FromDb)
+                .usingRecursiveAssertion()
+                .isEqualTo(user2);
+
+        assertThat(user3FromDb)
+                .usingRecursiveAssertion()
+                .isEqualTo(user3);
+
+        assertThat(user4FromDb)
+                .usingRecursiveAssertion()
+                .isEqualTo(user4);
+    }
+
+    @Test
+    void test_findById_find_not_existing_user_ok() {
+        // arrange
+
+        // act
+        printTable();
+
+        User user1FromDb = userRepository.findById(1);
+
+        // assert
+        printTable();
+        assertThat(user1FromDb).isNull();
     }
 
     @AfterEach

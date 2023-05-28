@@ -12,6 +12,8 @@ public class UserRepository implements Persistent<User> {
 
    @Override
    public void save(User user) {
+       checkIfUserIsNull(user);
+
        if (user.getId() == null) {
            this.insert(user);
        } else {
@@ -21,6 +23,8 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public void update(User user) {
+        checkIfUserIsNull(user);
+
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=? WHERE U_ID=?";
 
@@ -43,6 +47,8 @@ public class UserRepository implements Persistent<User> {
 
     @Override
     public void insert(User user) {
+        checkIfUserIsNull(user);
+
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT) VALUES (?,?,?,?,?)";
 
@@ -157,5 +163,11 @@ public class UserRepository implements Persistent<User> {
        }
 
        return true;
+    }
+
+    private void checkIfUserIsNull(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User must not null");
+        }
     }
 }
