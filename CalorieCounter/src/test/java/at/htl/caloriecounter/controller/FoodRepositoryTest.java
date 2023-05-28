@@ -16,24 +16,35 @@ import static org.assertj.db.output.Outputs.output;
 public class FoodRepositoryTest {
     FoodRepository foodRepository = new FoodRepository();
     DataSource dataSource = Database.getDataSource();
+    private static final String tableName = "CC_FOOD";
+    Table table = new Table();
+
+    void printTable() {
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+    }
 
     @BeforeEach
     void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
+
+        printTable();
     }
 
     @Test
-    void test_insert_food() {
+    void test_save_save_food_and_check_database_ok() {
         // arrange
-
-        Food food = new Food("tomato", 21.0);
+        Food food = new Food(
+                "tomato",
+                21.0
+        );
 
         // act
         foodRepository.save(food);
 
         // assert
-        Table table = new Table(dataSource, "CC_FOOD");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .row(0)
                 .column("F_NAME").value().isEqualTo(food.getName())
@@ -41,19 +52,27 @@ public class FoodRepositoryTest {
     }
 
     @Test
-    void test_insert_multiply_food() {
+    void test_save_save_multiply_food_and_check_database_ok() {
         // arrange
-
-        Food food1 = new Food("orange", 47.0);
-        Food food2 = new Food("banana", 89.0);
+        Food food1 = new Food(
+                "orange",
+                47.0
+        );
+        Food food2 = new Food(
+                "banana",
+                89.0
+        );
 
         // act
         foodRepository.save(food1);
+
+        printTable();
+
         foodRepository.save(food2);
 
         // assert
-        Table table = new Table(dataSource, "CC_FOOD");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists().hasNumberOfRows(2)
                 .row(0)
                 .column("F_NAME").value().isEqualTo(food1.getName())
@@ -63,34 +82,45 @@ public class FoodRepositoryTest {
                 .column("F_CALORIES").value().isEqualTo(food2.getCalories());
     }
     @Test
-    void delete_food() {
+    void test_delete_delete_food_and_check_database_ok() {
         // arrange
-        Food food = new Food("tomato", 21.0);
-        foodRepository.save(food);
-        System.out.println(food.getId());
+        Food food = new Food(
+                "tomato",
+                21.0
+        );
 
         // act
+        foodRepository.save(food);
+
+        printTable();
+
         foodRepository.delete(food.getId());
 
         // assert
-        Table table = new Table(dataSource, "CC_FOOD");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).isEmpty();
     }
 
     @Test
-    void test_update_food() {
+    void test_update_update_food_and_check_database_ok() {
         // arrange
-        Food food = new Food("tomato", 20.0);
+        Food food = new Food(
+                "tomato",
+                20.0
+        );
 
         // act
         foodRepository.save(food);
         food.setCalories(21.0);
+
+        printTable();
+
         foodRepository.update(food);
 
         // assert
-        Table table = new Table(dataSource, "CC_FOOD");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .row(0)
                 .column("F_NAME").value().isEqualTo(food.getName())

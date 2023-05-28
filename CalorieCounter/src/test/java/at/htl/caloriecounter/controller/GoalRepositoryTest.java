@@ -8,76 +8,122 @@ import at.htl.caloriecounter.repositories.Database;
 import at.htl.caloriecounter.repositories.GoalRepository;
 import at.htl.caloriecounter.repositories.UserRepository;
 import org.assertj.db.type.Table;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
+
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
 public class GoalRepositoryTest {
+    private static final String tableName = "CC_GOAL";
     GoalRepository goalRepository = new GoalRepository();
     DataSource dataSource = Database.getDataSource();
     UserRepository userRepository = new UserRepository();
+    Table table = new Table();
+
+    void printTable() {
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+    }
 
     @BeforeEach
     void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
+
+        printTable();
     }
 
     @Test
-    void test_insert_goal() {
+    void test_save_save_goal_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-        userRepository.save(user);
-
-        Goal goal = new Goal(70.2, LocalDateTime.of(2023, 3, 20, 0, 0), user);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Goal goal = new Goal(
+                70.2,
+                LocalDateTime.of(2023, 3, 20, 0, 0),
+                user
+        );
 
         // act
+        userRepository.save(user);
         goalRepository.save(goal);
 
         // assert
-        Table table = new Table(dataSource, "CC_GOAL");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .column("G_WEIGHT").value().isEqualTo(goal.getWeight())
                 .column("G_DEADLINE").value().isEqualTo(goal.getDeadline())
                 .column("G_U_ID").value().isEqualTo(user.getId());
     }
+
     @Test
-    void test_delete_goal() {
+    void test_delete_delete_goal_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-
-        userRepository.save(user);
-
-        Goal goal = new Goal(75.0, LocalDateTime.of(2023, 10, 31, 0, 0), user);
-        goalRepository.save(goal);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Goal goal = new Goal(75.0,
+                LocalDateTime.of(2023, 10, 31, 0, 0),
+                user
+        );
 
         // act
+        userRepository.save(user);
+        goalRepository.save(goal);
+
+        printTable();
+
         goalRepository.delete(goal.getId());
 
         // assert
-        Table table = new Table(dataSource, "CC_GOAL");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).isEmpty();
     }
 
     @Test
-    void test_update_goal() {
+    void test_update_update_goal_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-        Goal goal = new Goal(75.0, LocalDateTime.of(2023, 10, 31, 0, 0), user);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Goal goal = new Goal(
+                75.0,
+                LocalDateTime.of(2023, 10, 31, 0, 0),
+                user
+        );
 
         // act
         userRepository.save(user);
         goalRepository.save(goal);
 
         goal.setWeight(70.0);
+
+        printTable();
+
         goalRepository.update(goal);
 
         // assert
-        Table table = new Table(dataSource, "CC_GOAL");
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .column("G_WEIGHT").value().isEqualTo(goal.getWeight())
                 .column("G_DEADLINE").value().isEqualTo(goal.getDeadline())

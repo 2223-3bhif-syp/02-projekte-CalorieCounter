@@ -23,20 +23,39 @@ public class ConsumptionRepositoryTest {
     ConsumptionRepository consumptionRepository = new ConsumptionRepository();
     DataSource dataSource = Database.getDataSource();
     private static final String tableName = "CC_CONSUMPTION";
+    Table table = new Table();
+
+    void printTable() {
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+    }
 
     @BeforeEach
     void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
+
+        printTable();
     }
     @Test
 void test_save_save_consumption_and_check_database_ok() {
         // arrange
-        Table table = new Table(dataSource, tableName);
-        output(table).toConsole();
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-        Food food = new Food("tomato", 21.0);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Food food = new Food(
+                "tomato",
+                21.0
+        );
 
-        Consumption consumption = new Consumption(user, food, 3);
+        Consumption consumption = new Consumption(
+                user,
+                food,
+                3
+        );
 
         // act
         foodRepository.save(food);
@@ -44,8 +63,8 @@ void test_save_save_consumption_and_check_database_ok() {
         consumptionRepository.save(consumption);
 
         // assert
-        table = new Table(dataSource, tableName);
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .row(0)
                 .column("C_ID").value().isEqualTo(consumption.getId())
@@ -57,54 +76,73 @@ void test_save_save_consumption_and_check_database_ok() {
     @Test
     void test_delete_delete_consumption_and_check_database_ok() {
         // arrange
-        Table table = new Table(dataSource, tableName);
-        output(table).toConsole();
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-        Food food = new Food("tomato", 21.0);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Food food = new Food(
+                "tomato",
+                21.0
+        );
 
-        Consumption consumption = new Consumption(user, food, 3);
+        Consumption consumption = new Consumption(
+                user,
+                food,
+                3
+        );
+
         // act
         foodRepository.save(food);
         userRepository.save(user);
         consumptionRepository.save(consumption);
 
-        table = new Table(dataSource, tableName);
-        output(table).toConsole();
+        printTable();
 
         consumptionRepository.delete(consumption.getId());
 
         // assert
-        table = new Table(dataSource, tableName);
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).isEmpty();
     }
 
     @Test
     void test_update_update_consumption_and_check_database_ok() {
         // arrange
-        Table table = new Table(dataSource, tableName);
-        output(table).toConsole();
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
-        Food food = new Food("tomato", 21.0);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
+        Food food = new Food(
+                "tomato",
+                21.0
+        );
 
-        Consumption consumption = new Consumption(user, food, 3);
+        Consumption consumption = new Consumption(
+                user,
+                food,
+                3
+        );
+
         // act
         foodRepository.save(food);
         userRepository.save(user);
         consumptionRepository.save(consumption);
-
         consumption.setAmount(5);
 
-        table = new Table(dataSource, tableName);
-        output(table).toConsole();
-
-
+        printTable();
 
         consumptionRepository.update(consumption);
 
         // assert
-        table = new Table(dataSource, tableName);
-        output(table).toConsole();
+        printTable();
+
         assertThat(table).exists()
                 .row(0)
                 .column("C_ID").value().isEqualTo(consumption.getId())

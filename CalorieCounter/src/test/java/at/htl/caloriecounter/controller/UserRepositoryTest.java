@@ -16,23 +16,37 @@ import static org.assertj.db.output.Outputs.output;
 class UserRepositoryTest {
     UserRepository userRepository = new UserRepository();
     DataSource dataSource = Database.getDataSource();
+    private static final String tableName = "CC_USER";
+    Table table = new Table();
+
+    void printTable() {
+        table = new Table(dataSource, tableName);
+        output(table).toConsole();
+    }
 
     @BeforeEach
     void createTables() {
         SqlRunner.runScript(SqlScript.CREATE);
+
+        printTable();
     }
 
     @Test
-    void test_insert_user() {
+    void test_save_save_user_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
 
         // act
         userRepository.save(user);
 
         // assert
-        Table table = new Table(dataSource, "CC_USER");
-        output(table).toConsole();
+        printTable();
         assertThat(table).exists()
                 .row(0)
                 .column("U_EMAIL").value().isEqualTo(user.getEmail())
@@ -43,33 +57,50 @@ class UserRepositoryTest {
     }
 
     @Test
-    void test_delete_user() {
+    void test_delete_delete_user_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
 
         // act
         userRepository.save(user);
+
+        printTable();
+
         userRepository.delete(user.getId());
 
         // assert
-        Table table = new Table(dataSource, "CC_USER");
-        output(table).toConsole();
+        printTable();
         assertThat(table).isEmpty();
     }
 
     @Test
-    void test_update_user() {
+    void test_update_update_user_and_check_database_ok() {
         // arrange
-        User user = new User("f.stro@example.com", "f.stro", "123", 70, 175);
+
+        User user = new User(
+                "f.stro@example.com",
+                "f.stro",
+                "123",
+                70,
+                175
+        );
 
         // act
         userRepository.save(user);
         user.setWeight(75.0);
+
+        printTable();
+
         userRepository.update(user);
 
         // assert
-        Table table = new Table(dataSource, "CC_USER");
-        output(table).toConsole();
+        printTable();
         assertThat(table).exists()
                 .row(0)
                 .column("U_EMAIL").value().isEqualTo(user.getEmail())
