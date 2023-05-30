@@ -13,7 +13,7 @@ public class Goal {
     }
 
     public Goal(double weight, LocalDateTime deadline, User user) {
-        this.weight = weight;
+        setWeight(weight);
         this.deadline = deadline;
         this.user = user;
     }
@@ -23,6 +23,10 @@ public class Goal {
     }
 
     public void setWeight(double weight) {
+        if(weight <= 0){
+            throw new IllegalArgumentException("weight cannot be 0 or less");
+        }
+
         this.weight = weight;
     }
 
@@ -31,6 +35,10 @@ public class Goal {
     }
 
     public void setDeadline(LocalDateTime deadline) {
+        if(deadline.isBefore(LocalDateTime.now())){
+            throw new IllegalArgumentException("Deadline cannot be in past");
+        }
+
         this.deadline = deadline;
     }
 

@@ -11,8 +11,8 @@ public class Workout {
 
     public Workout(String name, double calories, double duration, User user) {
         this.name = name;
-        this.calories = calories;
-        this.duration = duration;
+        setCalories(calories);
+        setDuration(duration);
         this.user = user;
     }
 
@@ -37,6 +37,10 @@ public class Workout {
     }
 
     public void setCalories(double calories) {
+        if(calories < 0){
+            throw new IllegalArgumentException("calories cannot be less than zero");
+        }
+
         this.calories = calories;
     }
 
@@ -45,6 +49,10 @@ public class Workout {
     }
 
     public void setDuration(double duration) {
+        if(duration < 0){
+            throw new IllegalArgumentException("duration cannot be less than zero");
+        }
+
         this.duration = duration;
     }
 

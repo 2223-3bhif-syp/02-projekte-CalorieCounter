@@ -3,20 +3,22 @@ package at.htl.caloriecounter.entity;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class FoodTest {
 
     @Test
     void createFood() {
         // arrange
-
-
-        // act
         Food food = new Food("tomate", 21.0);
 
+        // act
+        food.setCalories(50);
+
         // assert
-        assertThat(food.getCalories()).isEqualTo(21.0);
-
-
+        assertThatThrownBy(() -> food.setCalories(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("calories cannot be less than zero");
+        assertThat(food.getCalories()).isEqualTo(50);
     }
 }

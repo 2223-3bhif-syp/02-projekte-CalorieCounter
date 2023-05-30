@@ -1,8 +1,12 @@
 package at.htl.caloriecounter.entity;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class User {
+    private static final String mailRegex =
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private Pattern mailValidator = Pattern.compile(mailRegex);
     private String email;
     private String username;
     private String password;
@@ -13,11 +17,11 @@ public class User {
     public User() {}
 
     public User (String email, String username, String password, double weight, double height) {
-        this.email = email;
+        setEmail(email);
         this.username = username;
         this.password = password;
-        this.weight = weight;
-        this.height = height;
+        this.setWeight(weight);
+        this.setHeight(height);
     }
 
     public Long getId() {
@@ -33,6 +37,10 @@ public class User {
     }
 
     public void setEmail(String email) {
+        if(!mailValidator.matcher(email).matches()){
+            throw new IllegalArgumentException("invalid email " + email);
+        }
+
         this.email = email;
     }
 
@@ -57,6 +65,10 @@ public class User {
     }
 
     public void setHeight(double height) {
+        if(height <= 0){
+            throw new IllegalArgumentException("height cannot be 0 or less");
+        }
+
         this.height = height;
     }
 
@@ -65,14 +77,22 @@ public class User {
     }
 
     public void setWeight(double weight) {
+        if(weight <= 0){
+            throw new IllegalArgumentException("weight cannot be 0 or less");
+        }
+
         this.weight = weight;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o){
+            return true;
+        }
 
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
 
         User user = (User) o;
         return Double.compare(user.weight, weight) == 0

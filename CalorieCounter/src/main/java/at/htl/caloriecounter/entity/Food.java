@@ -9,7 +9,7 @@ public class Food {
 
     public Food(String name, double calories) {
         this.name = name;
-        this.calories = calories;
+        setCalories(calories);
     }
 
     public String getName() {
@@ -25,6 +25,10 @@ public class Food {
     }
 
     public void setCalories(double calories) {
+        if(calories < 0){
+            throw new IllegalArgumentException("calories cannot be less than zero");
+        }
+
         this.calories = calories;
     }
     public Long getId() {

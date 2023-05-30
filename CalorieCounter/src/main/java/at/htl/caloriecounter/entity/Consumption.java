@@ -11,7 +11,7 @@ public class Consumption {
     public Consumption(User user, Food food, int amount) {
         this.user = user;
         this.food = food;
-        this.amount = amount;
+        setAmount(amount);
     }
 
     public User getUser() {
@@ -35,6 +35,10 @@ public class Consumption {
     }
 
     public void setAmount(int amount) {
+        if(amount < 0){
+            throw new IllegalArgumentException("calories cannot be 0 or less");
+        }
+
         this.amount = amount;
     }
 
