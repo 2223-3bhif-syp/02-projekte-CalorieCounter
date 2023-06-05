@@ -44,7 +44,15 @@ public class RegisterController {
         }
 
         if (UserService.isValidRegistration(username, email, password, weight, height)) {
-            UserService.getInstance().insert(new User(email, username, password, weight, height));
+            User user = null;
+
+            try {
+                user = new User(email, username, password, weight, height);
+            } catch (Exception e) {
+                (new Alert(Alert.AlertType.ERROR, "Invalid parameters")).show();
+            }
+
+            UserService.getInstance().insert(user);
 
             Stage stage = (Stage) this.username.getScene().getWindow();
             stage.setScene(new Scene(loadFXML("/login")));
