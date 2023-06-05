@@ -22,4 +22,5 @@
         </VBox>
     </HBox>
     <Button fx:id="submitLogin" text="Login" onAction="#onLoginBtn" />
+    <Button fx:id="registerBtn" onAction="#switchToRegisterPage">To register page</Button>
 </VBox>

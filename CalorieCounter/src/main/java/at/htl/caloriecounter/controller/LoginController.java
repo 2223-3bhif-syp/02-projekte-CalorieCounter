@@ -36,4 +36,9 @@ public class LoginController {
             (new Alert(Alert.AlertType.ERROR, "Invalid username or password")).show();
         }
     }
+
+    public void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) submitLogin.getScene().getWindow();
+        stage.setScene(new Scene(loadFXML("/register"), 800, 800));
+    }
 }
