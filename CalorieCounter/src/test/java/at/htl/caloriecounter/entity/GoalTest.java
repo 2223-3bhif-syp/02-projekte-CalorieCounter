@@ -13,7 +13,7 @@ class GoalTest {
     void createGoal() {
         // arrange
         final LocalDateTime lcd = LocalDateTime.now().plusMonths(1);
-        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170);
+        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170, 17);
         Goal goal = new Goal(23.0, lcd, user);
 
         // act

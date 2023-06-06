@@ -13,7 +13,13 @@ public class UserTest {
     void createUser() {
         // arrange
         String email = "m.muster@gmail.com";
-        User user = new User(email, "musti", "1234", 80.3, 176);
+        User user = new User(
+                email,
+                "musti",
+                "1234",
+                80.3,
+                176,
+                17);
 
         // act
         user.setWeight(100);

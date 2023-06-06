@@ -13,7 +13,7 @@ public class ConsumptionTest {
     void createConsumption() {
         // arrange
         String email = "m.muster@gmail.com";
-        User user = new User(email, "musti", "1234", 80.3, 176);
+        User user = new User(email, "musti", "1234", 80.3, 176, 17);
         Food food = new Food("tomate", 21.0);
         Consumption consumption = new Consumption(user, food, 2);
 

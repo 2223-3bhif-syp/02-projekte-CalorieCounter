@@ -45,7 +45,8 @@ public class GoalRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Goal goal = new Goal(
                 70.2,
@@ -74,7 +75,8 @@ public class GoalRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Goal goal = new Goal(75.0,
                 LocalDateTime.of(2023, 10, 31, 0, 0),
@@ -103,7 +105,8 @@ public class GoalRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Goal goal = new Goal(
                 75.0,

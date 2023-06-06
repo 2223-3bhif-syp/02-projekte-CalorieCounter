@@ -47,7 +47,7 @@ public class RegisterController {
             User user = null;
 
             try {
-                user = new User(email, username, password, weight, height);
+                user = new User(email, username, password, weight, height, 0);
             } catch (Exception e) {
                 (new Alert(Alert.AlertType.ERROR, "Invalid parameters")).show();
             }

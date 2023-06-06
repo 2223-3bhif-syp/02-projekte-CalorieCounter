@@ -43,7 +43,8 @@ public class WorkoutRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Workout workout = new Workout(
                 "Laufen",
@@ -75,7 +76,8 @@ public class WorkoutRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Workout workout = new Workout(
                 "Laufen",
@@ -106,7 +108,8 @@ public class WorkoutRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Workout workout = new Workout(
                 "Laufen",

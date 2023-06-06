@@ -44,7 +44,8 @@ class UserRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
 
         // act
@@ -83,7 +84,8 @@ class UserRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
 
         // act
@@ -107,7 +109,8 @@ class UserRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
 
         // act
@@ -151,28 +154,32 @@ class UserRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         User user2 = new User(
                 "m.grub@example.com",
                 "mo",
                 "123",
                 68,
-                179
+                179,
+                17
         );
         User user3 = new User(
                 "t.aich@example.com",
                 "tobi",
                 "123",
                 73,
-                170
+                170,
+                17
         );
         User user4 = new User(
                 "m.brein@example.com",
                 "max",
                 "123",
                 77,
-                174
+                174,
+                17
         );
 
         // act
@@ -200,28 +207,32 @@ class UserRepositoryTest {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         User user2 = new User(
                 "m.grub@example.com",
                 "mo",
                 "123",
                 68,
-                179
+                179,
+                17
         );
         User user3 = new User(
                 "t.aich@example.com",
                 "tobi",
                 "123",
                 73,
-                170
+                170,
+                17
         );
         User user4 = new User(
                 "m.brein@example.com",
                 "max",
                 "123",
                 77,
-                174
+                174,
+                17
         );
 
         // act

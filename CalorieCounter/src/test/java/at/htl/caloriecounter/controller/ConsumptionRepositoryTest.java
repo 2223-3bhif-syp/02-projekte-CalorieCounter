@@ -44,7 +44,8 @@ void test_save_save_consumption_and_check_database_ok() {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Food food = new Food(
                 "tomato",
@@ -81,7 +82,8 @@ void test_save_save_consumption_and_check_database_ok() {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Food food = new Food(
                 "tomato",
@@ -117,7 +119,8 @@ void test_save_save_consumption_and_check_database_ok() {
                 "f.stro",
                 "123",
                 70,
-                175
+                175,
+                17
         );
         Food food = new Food(
                 "tomato",

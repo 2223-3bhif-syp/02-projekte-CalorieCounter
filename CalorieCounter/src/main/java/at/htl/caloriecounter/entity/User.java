@@ -12,16 +12,18 @@ public class User {
     private String password;
     private double weight;
     private double height;
+    private int age;
     private Long id;
 
     public User() {}
 
-    public User (String email, String username, String password, double weight, double height) {
-        setEmail(email);
-        this.username = username;
-        this.password = password;
+    public User (String email, String username, String password, double weight, double height, int age) {
+        this.setEmail(email);
         this.setWeight(weight);
         this.setHeight(height);
+        this.setAge(age);
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -82,6 +84,18 @@ public class User {
         }
 
         this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if(age <= 0 || age > 130){
+            throw new IllegalArgumentException("Invalid age");
+        }
+
+        this.age = age;
     }
 
     @Override
