@@ -7,6 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +17,10 @@ import static at.htl.caloriecounter.App.loadFXML;
 import static at.htl.caloriecounter.repositories.UserRepository.isValidUser;
 
 public class LoginController {
+    @FXML
+    private void initialize(){
+
+    }
 
     @FXML
     private TextField username;
@@ -46,5 +52,15 @@ public class LoginController {
     private void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) submitLogin.getScene().getWindow();
         stage.setScene(new Scene(loadFXML("/register"), 800, 800));
+    }
+
+    @FXML
+    private void handleKeyPress(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER){
+            try {
+                onLoginBtn(new ActionEvent());
+            }catch (IOException e) {
+            }
+        }
     }
 }

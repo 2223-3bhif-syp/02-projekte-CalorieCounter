@@ -3,34 +3,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox spacing="10" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.caloriecounter.controller.CalorieCounterController">
+<StackPane alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.caloriecounter.controller.CalorieCounterController">
+    <VBox >
+        <HBox spacing="10" alignment="CENTER">
+            <VBox alignment="CENTER" prefWidth="223.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+                <Button text="Track calories" />
+                <Button text="Statistics" />
+                <Button text="Improve Goals" />
+                <Button text="Settings" />
+            </VBox>
 
-    <VBox prefHeight="165.0" prefWidth="203.0" spacing="10">
-        <Button text="Track calories" />
-        <Button text="Statistics" />
-        <Button text="Improve Goals" />
-        <Button text="Settings" />
+            <HBox spacing="10">
+                <VBox alignment="CENTER" prefWidth="197.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+                    <Button text="Sex" />
+                    <Button text="Age" />
+                    <Button text="Weight" />
+                    <Button text="Height" />
+                    <Button text="My desired weight" />
+                </VBox>
 
-        <HBox spacing="10">
-            <Button text="Feedback" />
-            <Button text="Support" />
+                <VBox alignment="CENTER" spacing="10" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+                    <Button text="Fat Muscle Analysis" />
+                    <Button text="Caliper Skinfold Measurement" />
+                    <Button text="Insert other values" />
+                </VBox>
+            </HBox>
         </HBox>
     </VBox>
-
-    <HBox spacing="10">
-        <VBox prefHeight="165.0" prefWidth="177.0" spacing="10">
-            <Button text="Sex" />
-            <Button text="Age" />
-            <Button text="Weight" />
-            <Button text="Height" />
-            <Button text="My desired weight" />
-        </VBox>
-
-        <VBox spacing="10">
-            <Button text="Fat Muscle Analysis" />
-            <Button text="Caliper Skinfold Measurement" />
-            <Button text="Insert other values" />
-        </VBox>
-    </HBox>
-
-</HBox>
+</StackPane>
