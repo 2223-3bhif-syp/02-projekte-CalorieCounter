@@ -8,19 +8,26 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
 
 import java.io.IOException;
 
 import static at.htl.caloriecounter.App.loadFXML;
 
 public class RegisterController {
-    public TextField username;
-    public TextField email;
-    public PasswordField password;
-    public TextField weight;
-    public TextField height;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField email;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private TextField weight;
+    @FXML
+    private TextField height;
 
-    public void onRegistration(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void onRegistration(ActionEvent actionEvent) throws IOException {
         String username = this.username.getText();
         String email = this.email.getText();
         String password = this.password.getText();

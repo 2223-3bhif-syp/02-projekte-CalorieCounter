@@ -171,7 +171,7 @@ public class UserRepository implements Persistent<User> {
 
     private void checkIfUserIsNull(User user) {
         if (user == null) {
-            throw new IllegalArgumentException("User must not null");
+            throw new IllegalArgumentException("User must not be null");
         }
     }
 }

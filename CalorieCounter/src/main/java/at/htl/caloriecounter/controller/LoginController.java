@@ -1,6 +1,7 @@
 package at.htl.caloriecounter.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -15,11 +16,15 @@ import static at.htl.caloriecounter.repositories.UserRepository.isValidUser;
 
 public class LoginController {
 
-    public TextField username;
-    public PasswordField password;
-    public Button submitLogin;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Button submitLogin;
 
-    public void onLoginBtn(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void onLoginBtn(ActionEvent actionEvent) throws IOException {
         String username = this.username.getText();
         String password = this.password.getText();
 
@@ -37,7 +42,8 @@ public class LoginController {
         }
     }
 
-    public void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) submitLogin.getScene().getWindow();
         stage.setScene(new Scene(loadFXML("/register"), 800, 800));
     }
