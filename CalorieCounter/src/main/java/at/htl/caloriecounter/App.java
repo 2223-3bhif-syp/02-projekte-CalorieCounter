@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class App extends Application {
         Scene scene = new Scene(loadFXML("/login"), 640, 550);
         stage.setScene(scene);
         stage.setTitle("Calorie Counter");
+        stage.getIcons().add(new Image(App.class.getResourceAsStream("/icon.jpg")));
         stage.show();
     }
 
