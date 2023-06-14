@@ -1,7 +1,9 @@
 package at.htl.caloriecounter.controller;
 
+import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.TextInputDialog;
@@ -104,7 +106,12 @@ public class CalorieCounterController {
         Optional<String> result = ageDialog.showAndWait();
 
         result.ifPresent(age -> {
-            //now change the age in current user
+            try{
+                int parsedAge = Integer.parseInt(age);
+                UserService.getInstance().getUser().setAge(parsedAge);
+            } catch (NumberFormatException ex){
+                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
+            }
         });
     }
 
@@ -118,7 +125,12 @@ public class CalorieCounterController {
         Optional<String> result = weightDialog.showAndWait();
 
         result.ifPresent(weight -> {
-            //now change the weight in current user
+            try{
+                int parsedWeight = Integer.parseInt(weight);
+                UserService.getInstance().getUser().setWeight(parsedWeight);
+            } catch (NumberFormatException ex){
+                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
+            }
         });
     }
 
@@ -132,7 +144,12 @@ public class CalorieCounterController {
         Optional<String> result = heightDialog.showAndWait();
 
         result.ifPresent(height -> {
-            //now change the height in current user
+            try{
+                int parsedHeight = Integer.parseInt(height);
+                UserService.getInstance().getUser().setHeight(parsedHeight);
+            } catch (NumberFormatException ex){
+                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
+            }
         });
     }
 
@@ -146,7 +163,7 @@ public class CalorieCounterController {
         Optional<String> result = desiredWeightDialog.showAndWait();
 
         result.ifPresent(desiredWeight -> {
-            //now change the desired weight in current user
+            //
         });
     }
 }

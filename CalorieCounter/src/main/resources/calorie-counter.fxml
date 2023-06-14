@@ -20,11 +20,11 @@
 
    <ToolBar prefHeight="72.0" prefWidth="180.0">
      <items>
-       <Button text="Sex" fx:id="toolbarSexBtn" onAction="#toolbarSexPressed"/>
+       <!--<Button text="Sex" fx:id="toolbarSexBtn" onAction="#toolbarSexPressed"/> -->
        <Button text="Age" fx:id="toolbarAgeBtn" onAction="#toolbarAgePressed"/>
        <Button text="Weight" fx:id="toolbarWeightBtn" onAction="#toolbarWeightPressed"/>
        <Button text="Height" fx:id="toolbarHeightBtn" onAction="#toolbarHeightPressed"/>
-       <Button text="My desired weight" fx:id="toolbarDesiredWeightBtn" onAction="#toolbarDesiredWeightPressed"/>
+       <!--<Button text="My desired weight" fx:id="toolbarDesiredWeightBtn" onAction="#toolbarDesiredWeightPressed"/>-->
      </items>
    </ToolBar>
 </VBox>
