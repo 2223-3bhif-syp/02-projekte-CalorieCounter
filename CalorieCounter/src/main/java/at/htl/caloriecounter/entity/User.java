@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class User {
     private static final String mailRegex =
-            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+            "^(.+)@(\\S+)$";
     private Pattern mailValidator = Pattern.compile(mailRegex);
     private String email;
     private String username;
@@ -109,8 +109,8 @@ public class User {
         }
 
         User user = (User) o;
-        return Double.compare(user.weight, weight) == 0
-                && Double.compare(user.height, height) == 0
+        return user.weight == weight
+                && user.height == height
                 && Objects.equals(email, user.email)
                 && Objects.equals(username, user.username)
                 && Objects.equals(password, user.password)

@@ -3,10 +3,10 @@ package at.htl.caloriecounter.repositories;
 import java.util.List;
 
 public interface Persistent<T> {
-    public void save(T entity);
-    public void update(T entity);
-    public void insert(T entity);
-    public void delete(long id);
-    public List<T> findAll();
-    public T findById(long id);
+    void save(T entity);
+    void update(T entity);
+    void insert(T entity);
+    void delete(long id);
+    List<T> findAll();
+    T findById(long id);
 }
