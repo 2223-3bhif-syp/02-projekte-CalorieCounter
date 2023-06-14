@@ -16,7 +16,7 @@ public class App extends Application {
         Scene scene = new Scene(loadFXML("/login"), 640, 550);
         stage.setScene(scene);
         stage.setTitle("Calorie Counter");
-        stage.getIcons().add(new Image(App.class.getResourceAsStream("/icon.jpg")));
+        stage.getIcons().add(new Image(App.class.getResourceAsStream("/icon.png")));
         stage.show();
     }
 
