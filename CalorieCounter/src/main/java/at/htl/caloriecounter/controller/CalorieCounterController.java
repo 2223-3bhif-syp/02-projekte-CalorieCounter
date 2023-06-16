@@ -3,10 +3,10 @@ package at.htl.caloriecounter.controller;
 import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
+
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Optional;
 
 public class CalorieCounterController {
@@ -96,22 +96,9 @@ public class CalorieCounterController {
     }
 
     @FXML
-    private void toolbarAgePressed(ActionEvent actionEvent) {
-        TextInputDialog ageDialog = new TextInputDialog();
-        ageDialog.setTitle("Age settings");
-        ageDialog.setHeaderText("Enter your age:");
-        ageDialog.setContentText("Age: ");
+    private void toolbarDoBPressed(ActionEvent actionEvent) {
 
-        Optional<String> result = ageDialog.showAndWait();
-
-        result.ifPresent(age -> {
-            try{
-                int parsedAge = Integer.parseInt(age);
-                UserService.getInstance().getUser().setAge(parsedAge);
-            } catch (NumberFormatException ex){
-                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
-            }
-        });
+        // LocalDate
     }
 
     @FXML
@@ -125,7 +112,7 @@ public class CalorieCounterController {
 
         result.ifPresent(weight -> {
             try{
-                int parsedWeight = Integer.parseInt(weight);
+                double parsedWeight = Double.parseDouble(weight);
                 UserService.getInstance().getUser().setWeight(parsedWeight);
             } catch (NumberFormatException ex){
                 new Alert(Alert.AlertType.ERROR, "Not a number!").show();
@@ -144,7 +131,7 @@ public class CalorieCounterController {
 
         result.ifPresent(height -> {
             try{
-                int parsedHeight = Integer.parseInt(height);
+                double parsedHeight = Double.parseDouble(height);
                 UserService.getInstance().getUser().setHeight(parsedHeight);
             } catch (NumberFormatException ex){
                 new Alert(Alert.AlertType.ERROR, "Not a number!").show();
