@@ -1,5 +1,6 @@
 package at.htl.caloriecounter.controller;
 
+import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -51,16 +52,35 @@ public class LoginController {
     @FXML
     private void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) submitLogin.getScene().getWindow();
-        stage.setScene(new Scene(loadFXML("/register"), 800, 800));
+        stage.setScene(new Scene(loadFXML("/register"), 640, 550));
     }
 
     @FXML
     private void handleKeyPress(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.ENTER){
-            try {
-                onLoginBtn(new ActionEvent());
-            }catch (IOException e) {
+
+        }
+
+        switch (keyEvent.getCode()){
+            case ENTER:{
+                try {
+                    onLoginBtn(new ActionEvent());
+                }catch (IOException e) {
+                }
+                break;
+            }
+            case ESCAPE:{
+                System.exit(0);
             }
         }
+    }
+
+    @FXML
+    private void about(ActionEvent actionEvent) {
+        Alert about = new Alert(Alert.AlertType.INFORMATION);
+        about.setTitle("CalorieCounter");
+        about.setHeaderText("CalorieCounter\nSYP-Project 3BHIF 22/23\nWTFPL Licensed");
+        about.setContentText("Aichinger Tobias\nGruber Moritz\nStroschneider Fabian\nBreinesberger Markus");
+        about.show();
     }
 }

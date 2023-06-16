@@ -51,7 +51,6 @@ public class CalorieCounterController {
 
     @FXML
     private void initialize() {
-        //TODO
     }
 
     @FXML
