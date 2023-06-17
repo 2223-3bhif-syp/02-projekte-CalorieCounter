@@ -10,6 +10,8 @@ import java.util.List;
 public class UserRepository implements Persistent<User> {
     private static DataSource dataSource = Database.getDataSource();
 
+    public User logedInUser;
+
    @Override
    public void save(User user) {
        checkIfUserIsNull(user);
@@ -171,5 +173,29 @@ public class UserRepository implements Persistent<User> {
         if (user == null) {
             throw new IllegalArgumentException("User must not be null");
         }
+    }
+
+    public User getUserByUsername(String username) {
+       try{
+                Connection connection = dataSource.getConnection();
+                String sql = "SELECT * FROM CC_USER WHERE U_USERNAME=?";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, username);
+                ResultSet result = statement.executeQuery();
+
+                if(result.next()) {
+                    User user = new User(result.getString("U_EMAIL"),
+                            result.getString("U_USERNAME"),
+                            result.getString("U_PASSWORD"),
+                            result.getDouble("U_WEIGHT"),
+                            result.getDouble("U_HEIGHT"),
+                            result.getInt("U_AGE"));
+                    user.setId(result.getLong("U_ID"));
+                    return user;
+                }
+             } catch (SQLException e) {
+                e.printStackTrace();
+       }
+         return null;
     }
 }

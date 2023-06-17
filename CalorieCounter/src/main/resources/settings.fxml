@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="at.htl.caloriecounter.controller.SettingsController">
+
+    <HBox>
+        <Label text="Einstellungen" alignment="CENTER" style="-fx-font-size: 30px;"/>
+    </HBox>
+
+    <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10"
+          style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+        <TextField fx:id="ageField" disable="true"/>
+        <TextField fx:id="weightField" disable="true"/>
+        <TextField fx:id="heightField" disable="true"/>
+    </VBox>
+
+    <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10"
+          style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+        <Button text="Fett-Muskel-Analyse" disable="true"/>
+        <Button text="Werte ändern" disable="true" fx:id="changeButton" onAction="#change"/>
+    </VBox>
+</VBox>

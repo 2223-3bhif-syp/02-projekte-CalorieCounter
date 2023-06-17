@@ -1,5 +1,19 @@
 = Calorie counter
 
+== Starten der App
+
+Stellen Sie sicher das sie sich in dem Ordner `CalorieCounter` befinden.
+Stellen Sie sicher, dass die Tabellen generiert wurden und schon Beispiels Daten enthalten.
+
+Anschließend führen Sie folgenden Befehl aus: `mvn clean javafx:run`.
+
+Nun sollte sich die App öffnen.
+
+Es gibt jetzt 2 Möglichkeiten:
+
+1. Sie können sich mit dem Benutzer `Max` und dem Passwort `MAXL123` einloggen.
+2. Sie können sich neu in der Anwendung registrieren.
+
 == Problem
 Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheitert es oft an der Umständlichkeit sich bei jeder einzelnen Mahlzeit die Kalorien der einzelnen Zutaten zu suchen.
 

@@ -1,5 +1,6 @@
 package at.htl.caloriecounter.controller;
 
+import at.htl.caloriecounter.repositories.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -28,6 +29,8 @@ public class LoginController {
     @FXML
     private Button submitLogin;
 
+    UserRepository userRepository = new UserRepository();
+
     @FXML
     private void onLoginBtn(ActionEvent event) throws IOException {
         String username = this.username.getText();
@@ -39,9 +42,9 @@ public class LoginController {
         }
 
         if (isValidUser(username, password)) {
-            System.out.println("Load");
+            userRepository.logedInUser = userRepository.getUserByUsername(username);
             Stage stage = (Stage) submitLogin.getScene().getWindow();
-            stage.setScene(new Scene(loadFXML("/calorie-counter"), 800, 800));
+            stage.setScene(new Scene(loadFXML("/calorie-counter"), 640, 550));
         } else {
             (new Alert(Alert.AlertType.ERROR, "Invalid username or password")).show();
         }

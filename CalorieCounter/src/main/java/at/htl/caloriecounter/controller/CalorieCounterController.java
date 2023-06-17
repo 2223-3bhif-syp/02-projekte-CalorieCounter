@@ -1,13 +1,19 @@
 package at.htl.caloriecounter.controller;
 
+import at.htl.caloriecounter.App;
 import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.time.LocalDate;
-import java.util.Locale;
-import java.util.Optional;
+import java.io.IOException;
+
+import javafx.scene.control.Button;
+
+
+import static at.htl.caloriecounter.App.loadFXML;
 
 public class CalorieCounterController {
     //region Buttons
@@ -66,90 +72,8 @@ public class CalorieCounterController {
     }
 
     @FXML
-    private void settingsPressed(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    private void fmaPressed(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    private void csmPressed(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    private void insertOtherValuesPressed(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    private void toolbarSexPressed(ActionEvent actionEvent) {
-        ChoiceDialog sexDialog = new ChoiceDialog("", "male", "female", "other");
-        sexDialog.setTitle("Sex settings");
-        sexDialog.setHeaderText("Choose your gender:");
-        sexDialog.setContentText("Sex: ");
-
-        Optional<String> result = sexDialog.showAndWait();
-
-        result.ifPresent(sex -> {
-            //now change gender in user
-        });
-    }
-
-    @FXML
-    private void toolbarDoBPressed(ActionEvent actionEvent) {
-
-        // LocalDate
-    }
-
-    @FXML
-    private void toolbarWeightPressed(ActionEvent actionEvent) {
-        TextInputDialog weightDialog = new TextInputDialog();
-        weightDialog.setTitle("Weight settings");
-        weightDialog.setHeaderText("Enter your weight:");
-        weightDialog.setContentText("weight: ");
-
-        Optional<String> result = weightDialog.showAndWait();
-
-        result.ifPresent(weight -> {
-            try{
-                double parsedWeight = Double.parseDouble(weight);
-                UserService.getInstance().getUser().setWeight(parsedWeight);
-            } catch (NumberFormatException ex){
-                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
-            }
-        });
-    }
-
-    @FXML
-    private void toolbarHeightPressed(ActionEvent actionEvent) {
-        TextInputDialog heightDialog = new TextInputDialog();
-        heightDialog.setTitle("Height settings");
-        heightDialog.setHeaderText("Enter your height:");
-        heightDialog.setContentText("Height: ");
-
-        Optional<String> result = heightDialog.showAndWait();
-
-        result.ifPresent(height -> {
-            try{
-                double parsedHeight = Double.parseDouble(height);
-                UserService.getInstance().getUser().setHeight(parsedHeight);
-            } catch (NumberFormatException ex){
-                new Alert(Alert.AlertType.ERROR, "Not a number!").show();
-            }
-        });
-    }
-
-    @FXML
-    private void toolbarDesiredWeightPressed(ActionEvent actionEvent) {
-        TextInputDialog desiredWeightDialog = new TextInputDialog();
-        desiredWeightDialog.setTitle("desired weight settings");
-        desiredWeightDialog.setHeaderText("Enter your desired weight:");
-        desiredWeightDialog.setContentText("Desired Weight: ");
-
-        Optional<String> result = desiredWeightDialog.showAndWait();
-
-        result.ifPresent(desiredWeight -> {
-            //
-        });
+    private void settingsPressed(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBtn.getScene().getWindow();
+        stage.setScene(new Scene(new FXMLLoader(App.class.getResource("settings.fxml")).load()));
     }
 }

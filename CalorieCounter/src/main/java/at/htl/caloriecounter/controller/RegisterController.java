@@ -51,7 +51,7 @@ public class RegisterController {
             }
 
             Stage stage = (Stage) this.username.getScene().getWindow();
-            stage.setScene(new Scene(loadFXML("/calorie-counter"), 800, 800));
+            stage.setScene(new Scene(loadFXML("/calorie-counter"), 640, 550));
         } else {
             (new Alert(Alert.AlertType.WARNING, "Invalid registration")).show();
         }
@@ -59,6 +59,6 @@ public class RegisterController {
 
     public void onLogin(ActionEvent event) throws IOException {
         Stage stage = (Stage) this.username.getScene().getWindow();
-        stage.setScene(new Scene(loadFXML("/login"), 800, 800));
+        stage.setScene(new Scene(loadFXML("/login"), 640, 550));
     }
 }

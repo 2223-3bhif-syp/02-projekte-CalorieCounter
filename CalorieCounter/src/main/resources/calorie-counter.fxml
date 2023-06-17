@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="at.htl.caloriecounter.controller.CalorieCounterController">
 
-<VBox xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.caloriecounter.controller.CalorieCounterController">
-    <HBox alignment="CENTER" spacing="10">
-        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-            <Button text="Track calories" textFill="RED" fx:id="trackCaloriesBtn" onAction="#trackCaloriesPressed"/>
-            <Button text="Statistics" textFill="#0d00ff" fx:id="statisticsBtn" onAction="#statisticsPressed"/>
-            <Button text="Improve Goals" textFill="#0aab32" fx:id="improveGoalsBtn" onAction="#improveGoalsPressed"/>
-            <Button text="Settings" textFill="#ff8103" fx:id="settingsBtn" onAction="#settingsPressed"/>
-        </VBox>
-            <VBox alignment="CENTER" prefHeight="251.0" prefWidth="195.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-                <Button text="Fat Muscle Analysis" fx:id="fmaBtn" onAction="#fmaPressed"/>
-                <Button text="Caliper Skinfold Measurement" fx:id="csmBtn" onAction="#csmPressed"/>
-                <Button text="Insert other values" fx:id="insertOtherValuesBtn" onAction="#insertOtherValuesPressed"/>
-            </VBox>
+    <HBox>
+        <Label text="Kalorienrechner" alignment="CENTER" style="-fx-font-size: 30px;"/>
     </HBox>
 
-   <ToolBar prefHeight="72.0" prefWidth="180.0">
-     <items>
-       <!--<Button text="Sex" fx:id="toolbarSexBtn" onAction="#toolbarSexPressed"/> -->
-       <Button text="Date of birth" fx:id="toolbarAgeBtn" onAction="#toolbarDoBPressed"/>
-       <Button text="Weight" fx:id="toolbarWeightBtn" onAction="#toolbarWeightPressed"/>
-       <Button text="Height" fx:id="toolbarHeightBtn" onAction="#toolbarHeightPressed"/>
-       <!--<Button text="My desired weight" fx:id="toolbarDesiredWeightBtn" onAction="#toolbarDesiredWeightPressed"/>-->
-     </items>
-   </ToolBar>
+    <HBox alignment="CENTER" spacing="10">
+        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10"
+              style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+            <Button text="Track calories" textFill="RED" fx:id="trackCaloriesBtn" onAction="#trackCaloriesPressed"
+                    disable="true"/>
+        </VBox>
+        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="195.0" spacing="10"
+              style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+            <Button text="Statistics" textFill="#0d00ff" fx:id="statisticsBtn" onAction="#statisticsPressed" disable="true"/>
+        </VBox>
+    </HBox>
+    <HBox alignment="CENTER" spacing="10">
+        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10"
+              style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+            <Button text="Improve Goals" textFill="#0aab32" fx:id="improveGoalsBtn" onAction="#improveGoalsPressed" disable="true"/>
+        </VBox>
+        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="195.0" spacing="10"
+              style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
+            <Button text="Settings" textFill="#ff8103" fx:id="settingsBtn" onAction="#settingsPressed" disable="true"/>
+        </VBox>
+    </HBox>
+
 </VBox>
