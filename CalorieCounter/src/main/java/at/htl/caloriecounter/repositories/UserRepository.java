@@ -150,23 +150,21 @@ public class UserRepository implements Persistent<User> {
     }
 
     public static boolean isValidUser(String username, String password) {
-       try (Connection connection = dataSource.getConnection()) {
-           String sql = "SELECT COUNT(*) as \"cnt\" FROM CC_USER WHERE UPPER(U_USERNAME) = ? AND U_PASSWORD = ?";
+       try{
+              Connection connection = dataSource.getConnection();
+              String sql = "SELECT * FROM CC_USER WHERE U_USERNAME=? AND U_PASSWORD=?";
+              PreparedStatement statement = connection.prepareStatement(sql);
+              statement.setString(1, username);
+              statement.setString(2, password);
+              ResultSet result = statement.executeQuery();
 
-           PreparedStatement statement = connection.prepareStatement(sql);
-           statement.setString(1, username.toUpperCase());
-           statement.setString(2, password);
-
-           ResultSet resultSet = statement.executeQuery();
-
-           if (resultSet.next() && resultSet.getInt("cnt") == 0) {
-               return false;
-           }
-       } catch (SQLException e) {
-           e.printStackTrace();
+              if(result.next()) {
+                return true;
+              }
+         } catch (SQLException e) {
+              e.printStackTrace();
        }
-
-       return true;
+         return false;
     }
 
     private void checkIfUserIsNull(User user) {
