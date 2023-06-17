@@ -1,6 +1,5 @@
 package at.htl.caloriecounter.controller;
 
-import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -8,7 +7,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -31,7 +29,7 @@ public class LoginController {
     private Button submitLogin;
 
     @FXML
-    private void onLoginBtn(ActionEvent actionEvent) throws IOException {
+    private void onLoginBtn(ActionEvent event) throws IOException {
         String username = this.username.getText();
         String password = this.password.getText();
 
@@ -50,22 +48,18 @@ public class LoginController {
     }
 
     @FXML
-    private void switchToRegisterPage(ActionEvent actionEvent) throws IOException {
+    private void switchToRegisterPage() throws IOException {
         Stage stage = (Stage) submitLogin.getScene().getWindow();
         stage.setScene(new Scene(loadFXML("/register"), 640, 550));
     }
 
     @FXML
     private void handleKeyPress(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER){
-
-        }
-
         switch (keyEvent.getCode()){
             case ENTER:{
                 try {
                     onLoginBtn(new ActionEvent());
-                }catch (IOException e) {
+                }catch (IOException ignored) {
                 }
                 break;
             }
@@ -76,7 +70,7 @@ public class LoginController {
     }
 
     @FXML
-    private void about(ActionEvent actionEvent) {
+    private void about() {
         Alert about = new Alert(Alert.AlertType.INFORMATION);
         about.setTitle("CalorieCounter");
         about.setHeaderText("CalorieCounter\nSYP-Project 3BHIF 22/23\nWTFPL Licensed");

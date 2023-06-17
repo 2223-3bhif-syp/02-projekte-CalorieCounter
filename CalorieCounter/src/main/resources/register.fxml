@@ -19,14 +19,17 @@
             <Label text="Password: " />
             <Label text="Weight: " />
             <Label text="Height: " />
+            <Label text="Age: " />
         </VBox>
         <VBox alignment="CENTER" spacing="10.0">
-            <TextField fx:id="username"/>
-            <TextField fx:id="email"/>
-            <PasswordField fx:id="password" />
-            <TextField fx:id="weight"/>
-            <TextField fx:id="height"/>
+            <TextField fx:id="username" promptText="Enter username"/>
+            <TextField fx:id="email" promptText="Enter email"/>
+            <PasswordField fx:id="password" promptText="Enter password"/>
+            <TextField fx:id="weight" promptText="Enter weight (kg)"/>
+            <TextField fx:id="height" promptText="Enter height (m)"/>
+            <TextField fx:id="ageField" promptText="Enter age"/>
         </VBox>
     </HBox>
-    <Button fx:id="submitRegistration" text="Register" onAction="#onRegistration" />
+    <Hyperlink text="Already have an account? Login here!" onAction="#onLogin" />
+    <Button text="Register" onAction="#onRegistration" />
 </VBox>

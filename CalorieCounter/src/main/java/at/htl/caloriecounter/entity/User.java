@@ -1,5 +1,7 @@
 package at.htl.caloriecounter.entity;
 
+import javafx.scene.control.TextField;
+
 import java.util.Objects;
 import java.util.regex.Pattern;
 

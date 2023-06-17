@@ -50,8 +50,9 @@ public class UserRepository implements Persistent<User> {
     public void insert(User user) {
         checkIfUserIsNull(user);
 
-        try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_AGE) VALUES (?,?,?,?,?,?)";
+        try{
+            Connection connection = dataSource.getConnection();
+            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_AGE) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -60,18 +61,17 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setDouble(6, user.getAge());
+            statement.setLong(6, user.getAge());
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of CC_USER failed, no rows affected");
+                throw new SQLException("Insertion of CC_USER failed, no rows affected");
             }
 
-            try (ResultSet keys = statement.getGeneratedKeys()) {
-                if (keys.next()) {
-                    user.setId(keys.getLong(1));
-                } else {
-                    throw new SQLException("Insert into CC_USER failed, no ID obtained");
-                }
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                user.setId(generatedKeys.getLong(1));
+            } else {
+                throw new SQLException("Insertion of CC_USER failed, no ID obtained");
             }
         } catch (SQLException e) {
             e.printStackTrace();

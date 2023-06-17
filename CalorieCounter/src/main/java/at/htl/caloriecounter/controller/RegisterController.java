@@ -3,12 +3,12 @@ package at.htl.caloriecounter.controller;
 import at.htl.caloriecounter.entity.User;
 import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
 
 import java.io.IOException;
 
@@ -25,46 +25,40 @@ public class RegisterController {
     private TextField weight;
     @FXML
     private TextField height;
+    @FXML
+    private TextField ageField;
 
     @FXML
     private void onRegistration(ActionEvent actionEvent) throws IOException {
         String username = this.username.getText();
         String email = this.email.getText();
         String password = this.password.getText();
-        String weightStr = this.weight.getText();
-        String heightStr = this.height.getText();
+        double weight = Double.parseDouble(this.weight.getText());
+        double height = Double.parseDouble(this.height.getText());
+        int age = Integer.parseInt(this.ageField.getText());
 
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || weightStr.isEmpty() || heightStr.isEmpty()) {
-            (new Alert(Alert.AlertType.WARNING, "You have to fill out every field!")).show();
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || weight == 0 || height == 0) {
+            (new Alert(Alert.AlertType.ERROR, "You have to fill out every field")).show();
             return;
-        }
-
-        double weight = -1.0;
-        double height = -1.0;
-
-        try {
-            weight = Double.parseDouble(weightStr);
-            height = Double.parseDouble(heightStr);
-        } catch (NumberFormatException e) {
-            (new Alert(Alert.AlertType.WARNING, "Weight and height have to be numbers")).show();
-            return;
-        }
+        };
 
         if (UserService.isValidRegistration(username, email, password, weight, height)) {
-            User user = null;
 
             try {
-                user = new User(email, username, password, weight, height, 0);
+                UserService.getInstance().insert(new User(email, username, password, weight, height, age));
             } catch (Exception e) {
                 (new Alert(Alert.AlertType.ERROR, "Invalid parameters")).show();
             }
 
-            UserService.getInstance().insert(user);
-
             Stage stage = (Stage) this.username.getScene().getWindow();
-            stage.setScene(new Scene(loadFXML("/login")));
+            stage.setScene(new Scene(loadFXML("/calorie-counter"), 800, 800));
         } else {
             (new Alert(Alert.AlertType.WARNING, "Invalid registration")).show();
         }
+    }
+
+    public void onLogin(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.username.getScene().getWindow();
+        stage.setScene(new Scene(loadFXML("/login"), 800, 800));
     }
 }
