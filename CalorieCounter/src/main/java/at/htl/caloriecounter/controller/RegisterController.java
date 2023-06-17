@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Date;
 
 import static at.htl.caloriecounter.App.loadFXML;
 
@@ -35,7 +36,7 @@ public class RegisterController {
         String password = this.password.getText();
         double weight = Double.parseDouble(this.weight.getText());
         double height = Double.parseDouble(this.height.getText());
-        int age = Integer.parseInt(this.ageField.getText());
+        Date age = new Date(this.ageField.getText());
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || weight == 0 || height == 0) {
             (new Alert(Alert.AlertType.ERROR, "You have to fill out every field")).show();

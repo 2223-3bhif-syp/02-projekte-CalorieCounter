@@ -2,6 +2,7 @@ package at.htl.caloriecounter.entity;
 
 import javafx.scene.control.TextField;
 
+import java.util.Date;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -14,12 +15,12 @@ public class User {
     private String password;
     private double weight;
     private double height;
-    private int age;
+    private Date age;
     private Long id;
 
     public User() {}
 
-    public User (String email, String username, String password, double weight, double height, int age) {
+    public User (String email, String username, String password, double weight, double height, Date age) {
         this.setEmail(email);
         this.setWeight(weight);
         this.setHeight(height);
@@ -88,15 +89,11 @@ public class User {
         this.weight = weight;
     }
 
-    public int getAge() {
+    public Date getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        if(age <= 0 || age > 130){
-            throw new IllegalArgumentException("Invalid age");
-        }
-
+    public void setAge(Date age) {
         this.age = age;
     }
 

@@ -1,12 +1,12 @@
 -- Benutzer
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_AGE)
-VALUES ('m.mustermann@students.htl-leonding.ac.at', 'Max', 'MAXL123', 63.5, 176.3, 17);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_BIRTHDAY)
+VALUES ('m.mustermann@students.htl-leonding.ac.at', 'Max', 'MAXL123', 63.5, 176.3, '2003-01-01');
 
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_AGE)
-VALUES ('m.musterfrau@students.htl-leonding.ac.at', 'Marie', 'M4r1!', 60.1, 169.7, 17);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_BIRTHDAY)
+VALUES ('m.musterfrau@students.htl-leonding.ac.at', 'Marie', 'M4r1!', 60.1, 169.7, '2006-07-05');
 
-INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_AGE)
-VALUES ('t.testinger@students.htl-leonding.ac.at', 'theodore', 'th3od?0r!', 120.1, 193.0, 17);
+INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_WEIGHT, U_HEIGHT, U_BIRTHDAY)
+VALUES ('t.testinger@students.htl-leonding.ac.at', 'theodore', 'th3od?0r!', 120.1, 193.0, '2004-12-12');
 
 -- Ziele
 INSERT INTO CC_GOAL (G_WEIGHT, G_DEADLINE, G_U_ID)

@@ -28,7 +28,7 @@ public class UserRepository implements Persistent<User> {
         checkIfUserIsNull(user);
 
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=?, U_AGE=? WHERE U_ID=?";
+            String sql = "UPDATE CC_USER SET U_EMAIL=?, U_USERNAME=?, U_PASSWORD=?, U_HEIGHT=?, U_WEIGHT=?, U_BIRTHDAY=? WHERE U_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -37,7 +37,7 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getAge());
+            statement.setDate(6, (Date) user.getAge());
             statement.setLong(7, user.getId());
 
             if (statement.executeUpdate() == 0) {
@@ -54,7 +54,7 @@ public class UserRepository implements Persistent<User> {
 
         try{
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_AGE) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO CC_USER (U_EMAIL, U_USERNAME, U_PASSWORD, U_HEIGHT, U_WEIGHT, U_BIRTHDAY) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -63,7 +63,7 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setLong(6, user.getAge());
+            statement.setDate(6, (Date) user.getAge());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insertion of CC_USER failed, no rows affected");
@@ -111,7 +111,7 @@ public class UserRepository implements Persistent<User> {
                         result.getString("U_PASSWORD"),
                         result.getDouble("U_WEIGHT"),
                         result.getDouble("U_HEIGHT"),
-                        result.getInt("U_AGE"));
+                        result.getDate("U_BIRTHDAY"));
 
                 user.setId(result.getLong("U_ID"));
 
@@ -141,7 +141,7 @@ public class UserRepository implements Persistent<User> {
                         result.getString("U_PASSWORD"),
                         result.getDouble("U_WEIGHT"),
                         result.getDouble("U_HEIGHT"),
-                        result.getInt("U_AGE"));
+                        result.getDate("U_BIRTHDAY"));
                 user.setId(result.getLong("U_ID"));
             }
         } catch (SQLException e) {
@@ -189,7 +189,7 @@ public class UserRepository implements Persistent<User> {
                             result.getString("U_PASSWORD"),
                             result.getDouble("U_WEIGHT"),
                             result.getDouble("U_HEIGHT"),
-                            result.getInt("U_AGE"));
+                            result.getDate("U_BIRTHDAY"));
                     user.setId(result.getLong("U_ID"));
                     return user;
                 }

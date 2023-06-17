@@ -5,7 +5,7 @@ CREATE TABLE CC_USER (
                          U_PASSWORD              VARCHAR(20),
                          U_WEIGHT                DOUBLE,
                          U_HEIGHT                DOUBLE,
-                         U_AGE                   INTEGER
+                         U_BIRTHDAY              DATE
 );
 
 CREATE TABLE CC_GOAL (
