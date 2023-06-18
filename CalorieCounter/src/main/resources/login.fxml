@@ -18,7 +18,7 @@
         </VBox>
     </HBox>
     <Button fx:id="submitLogin" onAction="#onLoginBtn" text="Login"/>
-    <Hyperlink text="Register" onAction="#switchToRegisterPage"/>
+    <Hyperlink text="Dont have an account? Register here!" onAction="#switchToRegisterPage"/>
     <Button mnemonicParsing="false" text="About" onAction="#about">
         <font>
             <Font name="Cambria Italic" size="11.0"/>

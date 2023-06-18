@@ -1,6 +1,7 @@
 package at.htl.caloriecounter.controller;
 
 import at.htl.caloriecounter.repositories.UserRepository;
+import at.htl.caloriecounter.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -42,7 +43,7 @@ public class LoginController {
         }
 
         if (isValidUser(username, password)) {
-            userRepository.logedInUser = userRepository.getUserByUsername(username);
+            UserService.getInstance().setUser(userRepository.getUserByUsername(username));
             Stage stage = (Stage) submitLogin.getScene().getWindow();
             stage.setScene(new Scene(loadFXML("/calorie-counter"), 640, 550));
         } else {
