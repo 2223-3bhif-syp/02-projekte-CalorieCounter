@@ -3,18 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<VBox xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+<VBox spacing="20" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="at.htl.caloriecounter.controller.CalorieCounterController">
 
-    <HBox>
-        <Label text="Kalorienrechner" alignment="CENTER" style="-fx-font-size: 30px;"/>
+    <HBox alignment="CENTER">
+        <Label text="Calorie-Counter" alignment="CENTER" style="-fx-font-size: 30px;"/>
     </HBox>
 
     <HBox alignment="CENTER" spacing="10">
         <VBox alignment="CENTER" prefHeight="251.0" prefWidth="213.0" spacing="10"
               style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-            <Button text="Track calories" textFill="RED" fx:id="trackCaloriesBtn" onAction="#trackCaloriesPressed"
-                    disable="true"/>
+            <Button text="Track calories" textFill="RED" fx:id="trackCaloriesBtn" onAction="#trackCaloriesPressed"/>
         </VBox>
         <VBox alignment="CENTER" prefHeight="251.0" prefWidth="195.0" spacing="10"
               style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
@@ -28,7 +27,7 @@
         </VBox>
         <VBox alignment="CENTER" prefHeight="251.0" prefWidth="195.0" spacing="10"
               style="-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;">
-            <Button text="Settings" textFill="#ff8103" fx:id="settingsBtn" onAction="#settingsPressed" disable="true"/>
+            <Button text="Settings" textFill="#ff8103" fx:id="settingsBtn" onAction="#settingsPressed"/>
         </VBox>
     </HBox>
 

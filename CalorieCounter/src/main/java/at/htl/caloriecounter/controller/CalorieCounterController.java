@@ -57,10 +57,13 @@ public class CalorieCounterController {
 
     @FXML
     private void initialize() {
+        System.out.println(UserService.getInstance().getUser().getUsername());
     }
 
     @FXML
-    private void trackCaloriesPressed(ActionEvent actionEvent) {
+    private void trackCaloriesPressed(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) settingsBtn.getScene().getWindow();
+        stage.setScene(new Scene(loadFXML("/tracker"), 640, 550));
     }
 
     @FXML
@@ -74,6 +77,6 @@ public class CalorieCounterController {
     @FXML
     private void settingsPressed(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) settingsBtn.getScene().getWindow();
-        stage.setScene(new Scene(new FXMLLoader(App.class.getResource("settings.fxml")).load()));
+        stage.setScene(new Scene(loadFXML("/settings"), 640, 550));
     }
 }

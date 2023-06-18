@@ -13,11 +13,11 @@ public class UserService {
     private static final String emailRegex = "^(.+)@(\\S+)$";
     private static final int MIN_USERNAME_LENGTH = 3;
     private static final int MIN_PASSWORD_LENGTH = 8;
-    private static User user;
+    private User currentUser;
     private static UserService userService = null;
 
     private UserService() {
-        user = null;
+        currentUser = new User();
     }
 
     public static UserService getInstance() {
@@ -43,10 +43,10 @@ public class UserService {
     }
 
     public User getUser() {
-        return this.user;
+        return this.currentUser;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.currentUser = user;
     }
 }
