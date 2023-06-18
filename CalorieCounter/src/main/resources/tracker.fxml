@@ -16,9 +16,24 @@
         <Label text="Calorie-Tracker" alignment="CENTER" style="-fx-font-size: 30px;"/>
     </HBox>
 
-    <ListView fx:id="foodLv" onMouseClicked="#onMouseClickedLv"/>
+    <HBox alignment="CENTER">
+        <VBox>
+            <Label text="Available foods" />
+            <ListView fx:id="foodLv" onMouseClicked="#onMouseClickedLv"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Consumptions" />
+            <ListView fx:id="consumptionLv" onMouseClicked="#onMouseClickedConsumption"/>
+        </VBox>
+    </HBox>
+
     <TextField fx:id="foodNameField" promptText="Name of food"/>
     <TextField fx:id="foodCaloriesField" promptText="Calories of food"/>
-    <Button onAction="#onBtnSave">Save</Button>
-    <Button fx:id="btnDelete" onAction="#onBtnDelete" disable="true">Delete</Button>
+
+    <HBox>
+        <Button onAction="#onBtnSave">Save</Button>
+        <Button fx:id="btnDelete" onAction="#onBtnDelete" disable="true">Delete</Button>
+        <Button fx:id="btnConsume" onAction="#onBtnConsume" disable="true">Consume</Button>
+    </HBox>
 </VBox>

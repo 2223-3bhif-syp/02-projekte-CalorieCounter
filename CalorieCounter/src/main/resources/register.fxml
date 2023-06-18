@@ -19,7 +19,7 @@
             <Label text="Password: " />
             <Label text="Weight: " />
             <Label text="Height: " />
-            <Label text="Age: " />
+            <Label text="Birthday: " />
         </VBox>
         <VBox alignment="CENTER" spacing="20.0">
             <TextField fx:id="username" promptText="Enter username"/>

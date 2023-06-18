@@ -11,8 +11,6 @@ import java.util.List;
 public class UserRepository implements Persistent<User> {
     private static DataSource dataSource = Database.getDataSource();
 
-    public User logedInUser;
-
    @Override
    public void save(User user) {
        checkIfUserIsNull(user);
@@ -155,7 +153,7 @@ public class UserRepository implements Persistent<User> {
     public static boolean isValidUser(String username, String password) {
        try{
               Connection connection = dataSource.getConnection();
-              String sql = "SELECT * FROM CC_USER WHERE U_USERNAME=? AND U_PASSWORD=?";
+              String sql = "SELECT * FROM CC_USER WHERE UPPER(U_USERNAME)=UPPER(?) AND U_PASSWORD=?";
               PreparedStatement statement = connection.prepareStatement(sql);
               statement.setString(1, username);
               statement.setString(2, password);
@@ -179,7 +177,7 @@ public class UserRepository implements Persistent<User> {
     public User getUserByUsername(String username) {
        try{
                 Connection connection = dataSource.getConnection();
-                String sql = "SELECT * FROM CC_USER WHERE U_USERNAME=?";
+                String sql = "SELECT * FROM CC_USER WHERE UPPER(U_USERNAME)=UPPER(?)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, username);
                 ResultSet result = statement.executeQuery();

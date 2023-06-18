@@ -86,30 +86,53 @@ public class ConsumptionRepository implements Persistent<Consumption> {
     @Override
     public List<Consumption> findAll() {
         List<Consumption> consumptions = new ArrayList<>();
+        UserRepository userRepository = new UserRepository();
+        FoodRepository foodRepository = new FoodRepository();
 
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM CC_CONSUMPTION";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet result = preparedStatement.executeQuery();
 
-            while(result.next()) {
-                Consumption consumption = new Consumption();
-                consumption.setId((long) result.getInt("C_ID"));
-                consumption.setAmount(result.getInt("C_AMOUNT"));
-
-                UserRepository userRepository = new UserRepository();
-                FoodRepository foodRepository = new FoodRepository();
-
-                consumption.setUser(userRepository.findById(result.getInt("C_U_ID")));
-                consumption.setFood(foodRepository.findById(result.getInt("C_F_ID")));
-
-                consumptions.add(consumption);
-            }
+            addConsumptionsFromResultSet(result, consumptions);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return consumptions;
+    }
+
+    public List<Consumption> findAll(Long userId) {
+        List<Consumption> userConsumptions = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT * FROM CC_CONSUMPTION JOIN CC_USER C on C.U_ID = CC_CONSUMPTION.C_U_ID WHERE C_U_ID=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, userId);
+            ResultSet result = preparedStatement.executeQuery();
+
+            addConsumptionsFromResultSet(result, userConsumptions);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userConsumptions;
+    }
+
+    private void addConsumptionsFromResultSet(ResultSet result, List<Consumption> userConsumptions) throws SQLException {
+        UserRepository userRepository = new UserRepository();
+        FoodRepository foodRepository = new FoodRepository();
+
+        while(result.next()) {
+            Consumption consumption = new Consumption();
+            consumption.setId(result.getLong("C_ID"));
+            consumption.setAmount(result.getInt("C_AMOUNT"));
+
+            consumption.setUser(userRepository.findById(result.getLong("C_U_ID")));
+            consumption.setFood(foodRepository.findById(result.getLong("C_F_ID")));
+
+            userConsumptions.add(consumption);
+        }
     }
 
     @Override
