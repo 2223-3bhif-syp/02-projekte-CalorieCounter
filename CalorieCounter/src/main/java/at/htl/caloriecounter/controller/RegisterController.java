@@ -6,12 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 import static at.htl.caloriecounter.App.loadFXML;
 
@@ -27,34 +30,46 @@ public class RegisterController {
     @FXML
     private TextField height;
     @FXML
-    private TextField ageField;
+    private DatePicker ageDatePicker;
 
     @FXML
     private void onRegistration(ActionEvent actionEvent) throws IOException {
         String username = this.username.getText();
         String email = this.email.getText();
         String password = this.password.getText();
-        double weight = Double.parseDouble(this.weight.getText());
-        double height = Double.parseDouble(this.height.getText());
-        Date age = new Date(this.ageField.getText());
+        double weight;
+        double height;
+        try {
+            weight = Double.parseDouble(this.weight.getText().replace(',', '.'));
+            height = Double.parseDouble(this.height.getText().replace(',', '.'));
+        } catch (Exception ex) {
+            (new Alert(Alert.AlertType.ERROR, "Weight or height is not a number!")).showAndWait();
+            return;
+        }
+        LocalDate birthDate = ageDatePicker.getValue();
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || weight == 0 || height == 0) {
-            (new Alert(Alert.AlertType.ERROR, "You have to fill out every field")).show();
+            (new Alert(Alert.AlertType.ERROR, "You have to fill out every field")).showAndWait();
             return;
         };
 
         if (UserService.isValidRegistration(username, email, password, weight, height)) {
-
             try {
-                UserService.getInstance().insert(new User(email, username, password, weight, height, age));
+                UserService.getInstance().setUser(UserService.getInstance().insert(
+                        new User(email,
+                                username,
+                                password,
+                                weight,
+                                height,
+                                birthDate)));
             } catch (Exception e) {
-                (new Alert(Alert.AlertType.ERROR, "Invalid parameters")).show();
+                (new Alert(Alert.AlertType.ERROR, "Invalid parameters")).showAndWait();
             }
 
             Stage stage = (Stage) this.username.getScene().getWindow();
             stage.setScene(new Scene(loadFXML("/calorie-counter"), 640, 550));
         } else {
-            (new Alert(Alert.AlertType.WARNING, "Invalid registration")).show();
+            (new Alert(Alert.AlertType.WARNING, "Invalid registration")).showAndWait();
         }
     }
 
