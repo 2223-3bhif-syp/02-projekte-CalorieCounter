@@ -2,7 +2,9 @@ package at.htl.caloriecounter.entity;
 
 import javafx.scene.control.TextField;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -15,12 +17,12 @@ public class User {
     private String password;
     private double weight;
     private double height;
-    private Date age;
+    private LocalDate age;
     private Long id;
 
     public User() {}
 
-    public User (String email, String username, String password, double weight, double height, Date age) {
+    public User (String email, String username, String password, double weight, double height, LocalDate age) {
         this.setEmail(email);
         this.setWeight(weight);
         this.setHeight(height);
@@ -89,11 +91,11 @@ public class User {
         this.weight = weight;
     }
 
-    public Date getAge() {
+    public LocalDate getAge() {
         return age;
     }
 
-    public void setAge(Date age) {
+    public void setAge(LocalDate age) {
         this.age = age;
     }
 
@@ -113,6 +115,7 @@ public class User {
                 && Objects.equals(email, user.email)
                 && Objects.equals(username, user.username)
                 && Objects.equals(password, user.password)
-                && Objects.equals(id, user.id);
+                && Objects.equals(id, user.id)
+                && Objects.equals(age, user.age);
     }
 }

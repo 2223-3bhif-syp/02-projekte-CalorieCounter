@@ -4,6 +4,7 @@ import at.htl.caloriecounter.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setDate(6, (Date) user.getAge());
+            statement.setDate(6, Date.valueOf(user.getAge()));
             statement.setLong(7, user.getId());
 
             if (statement.executeUpdate() == 0) {
@@ -63,7 +64,7 @@ public class UserRepository implements Persistent<User> {
             statement.setString(3, user.getPassword());
             statement.setDouble(4, user.getHeight());
             statement.setDouble(5, user.getWeight());
-            statement.setDate(6, (Date) user.getAge());
+            statement.setDate(6, Date.valueOf(user.getAge()));
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insertion of CC_USER failed, no rows affected");
@@ -111,7 +112,7 @@ public class UserRepository implements Persistent<User> {
                         result.getString("U_PASSWORD"),
                         result.getDouble("U_WEIGHT"),
                         result.getDouble("U_HEIGHT"),
-                        result.getDate("U_BIRTHDAY"));
+                        result.getDate("U_BIRTHDAY").toLocalDate());
 
                 user.setId(result.getLong("U_ID"));
 
@@ -141,7 +142,7 @@ public class UserRepository implements Persistent<User> {
                         result.getString("U_PASSWORD"),
                         result.getDouble("U_WEIGHT"),
                         result.getDouble("U_HEIGHT"),
-                        result.getDate("U_BIRTHDAY"));
+                        result.getDate("U_BIRTHDAY").toLocalDate());
                 user.setId(result.getLong("U_ID"));
             }
         } catch (SQLException e) {
@@ -189,7 +190,7 @@ public class UserRepository implements Persistent<User> {
                             result.getString("U_PASSWORD"),
                             result.getDouble("U_WEIGHT"),
                             result.getDouble("U_HEIGHT"),
-                            result.getDate("U_BIRTHDAY"));
+                            result.getDate("U_BIRTHDAY").toLocalDate());
                     user.setId(result.getLong("U_ID"));
                     return user;
                 }

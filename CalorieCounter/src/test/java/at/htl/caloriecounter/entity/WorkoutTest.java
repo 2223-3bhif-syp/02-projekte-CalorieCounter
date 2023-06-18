@@ -2,6 +2,7 @@ package at.htl.caloriecounter.entity;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,7 +12,7 @@ public class WorkoutTest {
     @Test
     void createUser() {
         // arrange
-        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170, 17);
+        User user = new User("t.aichinger@gmx.at", "aichingert", "aichi123", 75, 170, LocalDate.of(2006, 5, 5));
         Workout workout = new Workout("Sport", 10.0, 5.30, user);
 
         // act

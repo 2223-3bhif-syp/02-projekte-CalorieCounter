@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.assertj.db.api.Assertions.assertThat;
@@ -46,7 +47,7 @@ public class GoalRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Goal goal = new Goal(
                 70.2,
@@ -76,7 +77,7 @@ public class GoalRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Goal goal = new Goal(75.0,
                 LocalDateTime.of(2023, 10, 31, 0, 0),
@@ -106,7 +107,7 @@ public class GoalRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Goal goal = new Goal(
                 75.0,

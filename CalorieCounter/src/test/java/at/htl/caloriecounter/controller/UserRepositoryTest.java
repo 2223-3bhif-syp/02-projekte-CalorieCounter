@@ -11,6 +11,7 @@ import org.junit.jupiter.api.*;
 import javax.sql.DataSource;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -45,7 +46,7 @@ class UserRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
 
         // act
@@ -85,7 +86,7 @@ class UserRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
 
         // act
@@ -110,7 +111,7 @@ class UserRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
 
         // act
@@ -155,7 +156,7 @@ class UserRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user2 = new User(
                 "m.grub@example.com",
@@ -163,7 +164,7 @@ class UserRepositoryTest {
                 "123",
                 68,
                 179,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user3 = new User(
                 "t.aich@example.com",
@@ -171,7 +172,7 @@ class UserRepositoryTest {
                 "123",
                 73,
                 170,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user4 = new User(
                 "m.brein@example.com",
@@ -179,7 +180,7 @@ class UserRepositoryTest {
                 "123",
                 77,
                 174,
-                17
+                LocalDate.of(2006, 5, 5)
         );
 
         // act
@@ -208,7 +209,7 @@ class UserRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user2 = new User(
                 "m.grub@example.com",
@@ -216,7 +217,7 @@ class UserRepositoryTest {
                 "123",
                 68,
                 179,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user3 = new User(
                 "t.aich@example.com",
@@ -224,7 +225,7 @@ class UserRepositoryTest {
                 "123",
                 73,
                 170,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         User user4 = new User(
                 "m.brein@example.com",
@@ -232,7 +233,7 @@ class UserRepositoryTest {
                 "123",
                 77,
                 174,
-                17
+                LocalDate.of(2006, 5, 5)
         );
 
         // act

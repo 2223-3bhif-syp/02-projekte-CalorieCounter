@@ -14,6 +14,8 @@ import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
+import java.time.LocalDate;
+
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 public class ConsumptionRepositoryTest {
@@ -45,7 +47,7 @@ void test_save_save_consumption_and_check_database_ok() {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Food food = new Food(
                 "tomato",
@@ -83,7 +85,7 @@ void test_save_save_consumption_and_check_database_ok() {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Food food = new Food(
                 "tomato",
@@ -120,7 +122,7 @@ void test_save_save_consumption_and_check_database_ok() {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Food food = new Food(
                 "tomato",

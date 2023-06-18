@@ -12,6 +12,8 @@ import org.junit.jupiter.api.*;
 
 import javax.sql.DataSource;
 
+import java.time.LocalDate;
+
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 
@@ -44,7 +46,7 @@ public class WorkoutRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Workout workout = new Workout(
                 "Laufen",
@@ -77,7 +79,7 @@ public class WorkoutRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Workout workout = new Workout(
                 "Laufen",
@@ -109,7 +111,7 @@ public class WorkoutRepositoryTest {
                 "123",
                 70,
                 175,
-                17
+                LocalDate.of(2006, 5, 5)
         );
         Workout workout = new Workout(
                 "Laufen",

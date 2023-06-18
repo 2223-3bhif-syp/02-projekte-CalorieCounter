@@ -19,13 +19,13 @@ public class UserTest {
                 "1234",
                 80.3,
                 176,
-                17);
+                LocalDate.of(2006, 5, 5));
 
         // act
         user.setWeight(100);
 
         // assert
-        String invalidEmail = ".some@.invalid..email!";
+        String invalidEmail = ".some.invalid..email!";
         assertThatThrownBy(() -> user.setEmail(invalidEmail))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("invalid email " + invalidEmail);
