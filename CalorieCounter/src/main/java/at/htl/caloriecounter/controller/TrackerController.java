@@ -92,11 +92,13 @@ public class TrackerController {
     }
 
     @FXML
-    private void onBtnConsume(ActionEvent actionEvent) {
+    private void onBtnConsume(ActionEvent actionEvent) throws IOException {
         if (!foodLv.getSelectionModel().isEmpty()) {
             Food selectedFood = foodLv.getSelectionModel().getSelectedItem();
             consumptionRepository.save(new Consumption(UserService.getInstance().getUser(), selectedFood, 1));
         }
+        Stage stage = (Stage) this.foodNameField.getScene().getWindow();
+        stage.setScene(new Scene(loadFXML("/tracker"), 640, 550));
     }
 
     @FXML
