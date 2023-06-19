@@ -1,0 +1,83 @@
+= Calorie counter
+:toc: left
+:sectnums:
+:toclevels: 3
+:table-caption:
+:linkattrs:
+:experimental:
+ifdef::env-github[]
+:warning-caption: :warning:endif::[]
+:important-caption: :heavy_exclamation_mark::[]
+endif::env-github[]
+
+== Starten der App
+
+Dieser Text beschreibt, wie man die App CalorieCounter startet und sicherstellt, dass die Tabellen generiert wurden und Beispieldaten enthalten.
+
+=== Voraussetzungen
+
+Zunächst muss man sicherstellen, dass man sich im richtigen Ordner `CalorieCounter` befindet. Falls die Tabellen noch nicht generiert wurden, muss man die Schritte 1. bis 5. durchführen, um die Tabellen zu generieren und Beispieldaten hinzuzufügen.
+
+=== Tabellen generieren und Daten starten
+
+1. `./download-derbydb-and-jdk.sh`, um die Datenbank downzuloaden.
+2. `./derbydb-create.sh`, um die Datenbank zu erstellen.
+3. `./derbydb-start.sh`, um die Datenbank zu starten.
+4. Sie finden unter `CalorieCounter/sql/cr_tables.sql` die SQL Datei, die die Tabellen erstellt. Öffnen Sie diese Datei und führen Sie die SQL Befehle mithilfe kbd:[Alt + Enter] aus, drücken Sie bei dem show up dialog die Pfeiltaste nach unten, sodass `run in query console` selektiert ist. Drücken Sie nun kbd:[Enter]. Drücken Sie erneut kbd:[Enter], um die SQL Befehle auszuführen. Mit der Pfeiltaste nach unten können Sie alle Statements ausführen, (wenn der ganze Code grün hinterlegt ist) drücken Sie erneut kbd:[Enter], anschließend befinden sich in Ihrer Datenbank die Tabellen.
+5. Wiederholen Sie diesen Schritt für die Datei `CalorieCounter/sql/ins_tables.sql`, um Beispieldaten in die Tabellen einzufügen.
+
+WARNING: Falls bei der Erstellung oder beim Hinzufügen von Daten etwas schiefgeht, kann man die SQL-Datei `dr_tables.sql` ausführen, um die Tabellen zu löschen und die Schritte 4. und 5. erneut durchführen.
+
+=== App starten
+
+Wenn die Tabellen und Beispieldaten erfolgreich generiert wurden, kann man die App durch den Befehl `mvn clean javafx:run` in der Konsole starten.
+
+=== Anmeldemöglichkeiten
+
+Es gibt zwei Anmeldemöglichkeiten:
+
+1. Sie können sich mit dem Benutzer `Max` und dem Passwort `MAXL123` anmelden.
+2. Sie können sich neu registrieren.
+
+
+=== Funktionen
+
+Nach dem Start der App under der Anwendungsphase sollte ein Menü mit vier Buttons angezeigt werden (Track calories, Statistics, Improve Goals, Settings).
+
+IMPORTANT: Derzeit sind nur die Buttons `Track calories` und `Settings` funktionsfähig.
+
+==== Track calories
+
+Wenn Sie auf den Button `Track calories` klicken, sollten Sie auf eine Seite kommen, wo Sie Ihre Kalorien tracken können. Sie können Ihre Kalorien mit dem Button `Save` hinzufügen. Sie können auch Ihre Kalorien mit dem Button `Delete` löschen, oder mit dem Button `Consume` konsumieren.
+
+==== Settings
+
+Wenn Sie auf den Button `Settings` klicken, sollten Sie auf eine Seite kommen, wo Sie Ihre Daten ändern können. Sie sehen auch Ihre Daten, die Sie bei der Registrierung eingegeben haben. Sie können diese Daten mit dem Button `Chnage Values` ändern und mit dem Button `Save` speichern.
+
+== Problem
+
+Viele Menschen wollen ihre Kalorienzunahme mitverfolgen. Jedoch scheitert es oft an der Umständlichkeit sich bei jeder einzelnen Mahlzeit die Kalorien der einzelnen Zutaten zu suchen.
+
+== Aufgabenstellung
+Die App soll nicht nur das Mitverfolgen von Kalorien erleichtern. Sondern auch beim Training einsetzbar sein, womit man Menschen zu Sport und Fitness motivieren kann.
+
+== Dokumente
+* https://vm81.htl-leonding.ac.at/agiles/99-368/current[Product backlog]
+* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/[Index]
+* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Projektauftrag[Projektauftrag]
+* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/Klassendiagramm[Klassendiagramm]
+* https://2223-3bhif-syp.github.io/02-projekte-CalorieCounter/sysspec[Pflichtenheft]
+
+== Wireframes
+
+.Home & Settings
+[%collapsible]
+====
+image::asciidocs/images/calorie-counter-home-settings.png[]
+====
+
+.Kalorien Übersicht
+[%collapsible]
+====
+image::asciidocs/images/calorie-counter-layout.png[]
+====

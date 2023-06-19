@@ -1,0 +1,35 @@
+@startuml
+
+top to bottom direction
+
+class User {
+    - email: String
+    - username: String
+    - password: Hash
+    - weight: Double
+    - height: Double
+}
+
+class Goal {
+    - weight: Double
+    - deadline: Date
+}
+
+class Workout {
+    - name: String
+    - calories-burned: Double
+    - duration: Double
+}
+
+class Food {
+    - name: String
+    - calories: Double
+    - amount: int
+}
+
+User "1" - "*" Goal : > tries
+Workout "*" - "1" User : < enters
+User "*" -- "*" Food
+(User, Food) .. Consumption
+
+@enduml

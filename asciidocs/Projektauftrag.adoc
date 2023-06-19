@@ -1,0 +1,59 @@
+= Projektauftrag
+Stroschneider, Gruber, Breinesberger und Aichinger
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
+
+----
+Kontakt: f.stroschneider@students.htl-leonding.ac.at
+----
+
+== Projektinformationen
+[cols="h, s"]
+|===
+| Projektantrag von | Stroschneider
+|===
+
+[cols="h, s"]
+|===
+| Projektbezeichnung | Calorie counter
+| Projektauftraggeber | HTL-Leonding
+| Projekthintergrund | Es gibt derzeit keine gute Kalorienzähler-App mit den Features, die sich die Leute wünschen.
+| Projektergebnis | Eine App, die Menschen das Ab- und Zunehmen erleichtert, indem sie ihre Kalorien im Auge behalten können.
+| Projektziel(e) | Die Nutzung der App soll Spaß machen und mehr Menschen zu Sport und Fitness motivieren.
+| Projektbeschreibung | Mit der App werden die Kalorien von Mahlzeiten berechnet und sie kann auch automatisch die Schritte mitzählen.
+
+                        Darüber hinaus kann man ein Training eingeben, um die genauesten Endergebnisse der Kalorien zu erhalten.
+|===
+
+== Projektphasen / Meilensteine
+
+Beschreibung der Projektphasen und deren überprüfbarer Zwischenergebnisse.
+
+|===
+| Phase | Meilenstein / Ergebnis | Soll-Termin | Freigabe
+
+| Plantuml erstellen | Plantuml Diagramm fertig | 14.11.2022 | -
+| Lebensmittelrechner erstellen | Berechnet Kalorien einer Mahlzeit | 13.02.2023 | -
+| Gewichts- und Kalorienrechner erstellen | Berechnet Gewicht und Kalorien | 03.07.2023 | -
+|===
+
+== Projektdaten
+
+[cols="h, s"]
+|===
+| Projektstart | 17.10.2022
+| Projektende | 10.06.2023
+|===
+
+== Projekt
+
+[cols="h, s"]
+|===
+| Projektrisiken | Dass es nicht im Schuljahr abgeschlossen wird
+| Projektorganisation | Projektleiter: Fabian Stroschneider
+
+                        Projektteam: Moritz Gruber, Tobias Aichinger, Markus Breinesberger
+| Abschluss des Projektauftrags | Datum, Unterschriften aller Verantwortlichen
+|===

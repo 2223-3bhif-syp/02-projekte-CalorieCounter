@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="at.htl.caloriecounter.controller.TrackerController"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <HBox>
+        <Button onAction="#onBtnBack">Back</Button>
+        <Label text="Calorie-Tracker" alignment="CENTER" style="-fx-font-size: 30px;"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <VBox>
+            <Label text="Available foods" />
+            <ListView fx:id="foodLv" onMouseClicked="#onMouseClickedLv"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Consumptions" />
+            <ListView fx:id="consumptionLv" onMouseClicked="#onMouseClickedConsumption"/>
+        </VBox>
+    </HBox>
+
+    <TextField fx:id="foodNameField" promptText="Name of food"/>
+    <TextField fx:id="foodCaloriesField" promptText="Calories of food"/>
+
+    <HBox>
+        <Button onAction="#onBtnSave">Save</Button>
+        <Button fx:id="btnDelete" onAction="#onBtnDelete" disable="true">Delete</Button>
+        <Button fx:id="btnConsume" onAction="#onBtnConsume" disable="true">Consume</Button>
+    </HBox>
+</VBox>
